@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà đã lưu - HomeFit AI</title>
+    <link rel="stylesheet" href="../../css/nha_da_luu.css">
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <a href="../index.html" class="brand">
+                <span class="brand-icon">⌂</span>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a href="../nguoi_dung/tim_kiem.html">Tìm nhà</a>
+                <a href="../nguoi_dung/nha_da_luu.html" class="active">Nhà đã lưu</a>
+                <a href="../nguoi_dung/so_sanh.html">So sánh</a>
+                <a href="../nguoi_dung/ai.html">AI</a>
+            </nav>
+
+            <div class="account">
+                <span class="notification">🔔</span>
+                <span class="role-badge">Người tìm nhà</span>
+                <span class="avatar">MA</span>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <p class="sidebar-heading">TRANG CỦA TÔI</p>
+
+                <nav class="side-nav">
+                    <a href="../nguoi_dung/tim_kiem.html">⌂ <span>Tìm nhà</span></a>
+                    <a href="../nguoi_dung/nha_da_luu.html" class="active">♡ <span>Nhà đã lưu</span></a>
+                    <a href="../nguoi_dung/so_sanh.html">▤ <span>So sánh</span></a>
+                    <a href="../nguoi_dung/ai.html">✧ <span>AI</span></a>
+                </nav>
+
+                <div class="role-card">
+                    <p>VAI TRÒ HIỆN TẠI</p>
+                    <strong>Người tìm nhà</strong>
+                    <a href="../Login/trang_chu.html">Đăng xuất</a>
+                </div>
+
+                <div class="ai-reminder">
+                    <span class="ai-icon">✧</span>
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
+                </div>
+
+                <a class="help-link" href="#">Trung tâm trợ giúp ↗</a>
+            </aside>
+
+            <main class="main-content">
+                <section class="page-heading">
+                    <div>
+                        <p class="eyebrow">TRANG CỦA MINH AN</p>
+                        <h1>Nhà đã lưu</h1>
+                        <p class="muted">
+                            Theo dõi nhà phù hợp, lưu lịch xem và ghi chú cho từng lựa chọn.
+                        </p>
+                    </div>
+
+                    <button class="button button-outline" id="compareTop">
+                        ▦ So sánh nhà đã chọn
+                    </button>
+                </section>
+
+                <nav class="tabs" aria-label="Danh mục nhà đã lưu">
+                    <button class="tab active" data-tab="saved">Danh sách đã lưu</button>
+                    <button class="tab" data-tab="schedule">Lịch xem nhà</button>
+                    <button class="tab" data-tab="needs">Nhu cầu đã chọn</button>
+                </nav>
+
+                <section class="tab-panel" id="savedPanel">
+                    <div class="card">
+                        <div class="card-heading">
+                            <h2>Nhà đã lưu</h2>
+                            <span class="badge" id="savedCount">3 nhà · Cập nhật gần nhất 01/10/2026</span>
+                        </div>
+
+                        <p class="muted description">
+                            Danh sách nhà phù hợp với nhu cầu 2 phòng ngủ, 12–18 triệu/tháng,
+                            gần nơi làm việc, có công viên và cho nuôi mèo.
+                        </p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nhà</th>
+                                        <th>Giá / diện tích</th>
+                                        <th>Phù hợp</th>
+                                        <th>Thời gian lưu</th>
+                                        <th>So sánh</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="savedHomes">
+                                    <tr data-home="An Nhiên HF-1024">
+                                        <td><strong>An Nhiên HF-1024</strong></td>
+                                        <td>15 triệu/tháng · 72 m²</td>
+                                        <td><span class="match">94%</span></td>
+                                        <td>30/09/2026</td>
+                                        <td>
+                                            <label class="compare-check">
+                                                <input type="checkbox" class="compare-input" checked>
+                                                Đã chọn
+                                            </label>
+                                        </td>
+                                        <td><button class="text-button remove-button">Bỏ lưu</button></td>
+                                    </tr>
+                                    <tr data-home="Riverside HF-1025">
+                                        <td><strong>Riverside HF-1025</strong></td>
+                                        <td>16,5 triệu/tháng · 76 m²</td>
+                                        <td><span class="match">89%</span></td>
+                                        <td>30/09/2026</td>
+                                        <td>
+                                            <label class="compare-check">
+                                                <input type="checkbox" class="compare-input">
+                                                Chưa chọn
+                                            </label>
+                                        </td>
+                                        <td><button class="text-button remove-button">Bỏ lưu</button></td>
+                                    </tr>
+                                    <tr data-home="Vườn Phố HF-1026">
+                                        <td><strong>Vườn Phố HF-1026</strong></td>
+                                        <td>13 triệu/tháng · 68 m²</td>
+                                        <td><span class="match">86%</span></td>
+                                        <td>01/10/2026</td>
+                                        <td>
+                                            <label class="compare-check">
+                                                <input type="checkbox" class="compare-input">
+                                                Chưa chọn
+                                            </label>
+                                        </td>
+                                        <td><button class="text-button remove-button">Bỏ lưu</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="table-note">
+                            Chọn các nhà muốn so sánh bằng ô đánh dấu ở cột “So sánh”.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="tab-panel hidden" id="schedulePanel">
+                    <div class="card">
+                        <h2>Lịch xem &amp; ghi chú</h2>
+                        <p class="muted">Theo dõi lịch hẹn và ghi chú cho từng nhà đã lưu.</p>
+
+                        <div class="schedule-list">
+                            <article class="schedule-item">
+                                <span class="schedule-date">03/10/2026 · 10:00</span>
+                                <div>
+                                    <strong>An Nhiên HF-1024</strong>
+                                    <p>Kiểm tra phí quản lý và quy định nuôi mèo trước khi đến.</p>
+                                </div>
+                            </article>
+                            <article class="schedule-item">
+                                <span class="schedule-date">Chưa xác nhận lịch</span>
+                                <div>
+                                    <strong>Riverside HF-1025</strong>
+                                    <p>Cần xác nhận ban công xanh và khoảng cách đi làm.</p>
+                                </div>
+                            </article>
+                            <article class="schedule-item">
+                                <span class="schedule-date">Chưa xác nhận lịch</span>
+                                <div>
+                                    <strong>Vườn Phố HF-1026</strong>
+                                    <p>Kiểm tra giá thuê và quy định nuôi mèo trước khi đến.</p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <button class="button button-outline" id="viewSchedule">
+                            Xem lịch &amp; phản hồi
+                        </button>
+                    </div>
+                </section>
+
+                <section class="tab-panel hidden" id="needsPanel">
+                    <div class="card">
+                        <h2>Nhu cầu đã chọn</h2>
+                        <p class="muted">Các tiêu chí dùng để đánh giá mức độ phù hợp của nhà.</p>
+
+                        <div class="needs-list">
+                            <div><span>Số phòng ngủ</span><strong>2 phòng ngủ</strong></div>
+                            <div><span>Ngân sách</span><strong>12–18 triệu/tháng</strong></div>
+                            <div><span>Vị trí</span><strong>Gần nơi làm việc</strong></div>
+                            <div><span>Không gian</span><strong>Gần công viên, không gian xanh</strong></div>
+                            <div><span>Thú cưng</span><strong>Cho phép nuôi mèo</strong></div>
+                        </div>
+
+                        <button class="button button-primary" id="editNeeds">
+                            Chỉnh sửa nhu cầu
+                        </button>
+                    </div>
+                </section>
+
+                <div class="bottom-grid">
+                    <section class="card schedule-card">
+                        <h2>Lịch xem &amp; ghi chú</h2>
+                        <p class="muted">Theo dõi lịch hẹn và ghi chú cho từng nhà đã lưu.</p>
+
+                        <article class="mini-schedule">
+                            <span class="date-label">03/10/2026 · 10:00</span>
+                            <div>
+                                <strong>An Nhiên HF-1024</strong>
+                                <p>Kiểm tra phí quản lý và quy định nuôi mèo trước khi đến.</p>
+                            </div>
+                        </article>
+
+                        <article class="mini-schedule">
+                            <span class="date-label">Chưa xác nhận lịch</span>
+                            <div>
+                                <strong>Riverside HF-1025</strong>
+                                <p>Cần xác nhận ban công xanh và khoảng cách đi làm.</p>
+                            </div>
+                        </article>
+
+                        <article class="mini-schedule">
+                            <span class="date-label">Chưa xác nhận lịch</span>
+                            <div>
+                                <strong>Vườn Phố HF-1026</strong>
+                                <p>Kiểm tra giá thuê và quy định nuôi mèo trước khi đến.</p>
+                            </div>
+                        </article>
+
+                        <button class="button button-outline" id="viewScheduleBottom">
+                            Xem lịch &amp; phản hồi
+                        </button>
+                    </section>
+
+                    <section class="card ai-card">
+                        <div class="ai-title">
+                            <h2>✧ AI hỗ trợ cho nhà đã lưu</h2>
+                            <span class="badge">Đã phân tích</span>
+                        </div>
+
+                        <p><strong>An Nhiên HF-1024 phù hợp 94%</strong> với nhu cầu của Minh An.</p>
+                        <p class="muted">
+                            Riverside HF-1025 phù hợp 89% và Vườn Phố HF-1026 phù hợp 86%.
+                            AI đề xuất ưu tiên An Nhiên và lưu lại Riverside để so sánh sau.
+                        </p>
+
+                        <div class="button-group">
+                            <button class="button button-primary" id="aiCompare">
+                                Chọn để so sánh
+                            </button>
+                            <button class="button button-outline" id="editNote">
+                                Sửa ghi chú
+                            </button>
+                            <button class="button button-outline" id="aiRemove">
+                                Bỏ lưu
+                            </button>
+                            <button class="button button-soft" id="saveSuggestion">
+                                Lưu gợi ý
+                            </button>
+                        </div>
+                    </section>
+                </div>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="../../js/nha_da_luu.js" defer></script>
+</body>
+</html>
