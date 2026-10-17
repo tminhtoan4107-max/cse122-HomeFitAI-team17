@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Trợ lý AI</title>
+    <link rel="stylesheet" href="../css/ai.css">
+</head>
+<body>
+    <div class="page">
+        <header class="navbar">
+            <a href="#" class="logo">
+                <span class="logo-icon">⌂</span>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="../pages/nguoi_dung/tim_kiem.html">Trang chủ</a>
+                <a href="../pages/ai.html" class="active">AI</a>
+            </nav>
+
+            <div class="avatar">MA</div>
+        </header>
+
+        <main class="container">
+            <section class="page-heading">
+                <div>
+                    <h1>HomeFit AI · Trợ lý AI</h1>
+                    <p>
+                        Trợ lý chung cho tìm nhà, môi giới, kiểm duyệt và quản trị
+                        — hỗ trợ theo quyền tài khoản.
+                    </p>
+                </div>
+                <button class="btn btn-outline" id="saveSession">
+                    Lưu phiên hỗ trợ
+                </button>
+            </section>
+
+            <section class="request-card">
+                <h2>Nội dung yêu cầu</h2>
+                <p id="requestText">
+                    Căn hộ 2 phòng ngủ, ngân sách 12–18 triệu/tháng,
+                    gần nơi làm việc, có công viên và cho nuôi mèo.
+                </p>
+                <p class="muted small">
+                    Ví dụ từ trang Tìm nhà · Minh An.
+                    Bạn có thể chỉnh sửa yêu cầu bất kỳ lúc nào.
+                </p>
+                <button class="text-button" id="editRequest">
+                    Chỉnh sửa yêu cầu
+                </button>
+                <div id="editArea" class="edit-area hidden">
+                    <textarea id="requestInput" rows="3"></textarea>
+                    <button class="btn btn-primary" id="updateRequest">
+                        Cập nhật
+                    </button>
+                </div>
+            </section>
+
+            <section class="suggestion-grid">
+                <article class="suggestion-card">
+                    <div class="card-top">
+                        <span>Gợi ý 1 · An Nhiên HF-1024</span>
+                        <span class="heart">♡</span>
+                    </div>
+                    <h2>2 phòng ngủ</h2>
+                    <p class="blue">15 triệu/tháng · 72 m²</p>
+                    <p class="muted small">Gần nơi làm việc</p>
+                </article>
+
+                <article class="suggestion-card">
+                    <div class="card-top">
+                        <span>Gợi ý 2 · Riverside HF-1025</span>
+                        <span class="heart">♡</span>
+                    </div>
+                    <h2>2 phòng ngủ</h2>
+                    <p class="blue">16,5 triệu/tháng · 76 m²</p>
+                    <p class="muted small">Ban công xanh</p>
+                </article>
+
+                <article class="suggestion-card">
+                    <div class="card-top">
+                        <span>Gợi ý 3 · Vườn Phố HF-1026</span>
+                        <span class="heart">♡</span>
+                    </div>
+                    <h2>2 phòng ngủ</h2>
+                    <p class="blue">13 triệu/tháng · 68 m²</p>
+                    <p class="muted small">Gần siêu thị</p>
+                </article>
+            </section>
+
+            <section class="analysis-grid">
+                <article class="panel">
+                    <h2>Tại sao AI gợi ý An Nhiên?</h2>
+                    <p class="muted">
+                        An Nhiên đáp ứng ba ưu tiên: gần nơi làm việc,
+                        có công viên và cho nuôi mèo.
+                    </p>
+
+                    <div class="score-item">
+                        <div class="score-label">
+                            <span>An Nhiên · Độ phù hợp</span>
+                            <strong>94%</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:94%"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-item">
+                        <div class="score-label">
+                            <span>Riverside · Độ phù hợp</span>
+                            <strong>89%</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:89%"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-item">
+                        <div class="score-label">
+                            <span>Vườn Phố · Độ phù hợp</span>
+                            <strong>86%</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill" style="width:86%"></div>
+                        </div>
+                    </div>
+
+                    <p class="muted small note">
+                        Ưu tiên xem An Nhiên; cần xác nhận phí quản lý
+                        và quy định thú cưng.
+                    </p>
+                </article>
+
+                <article class="panel">
+                    <h2>So sánh nhanh</h2>
+                    <p class="muted">
+                        So sánh giá thuê và nhu cầu sống của ba căn hộ.
+                    </p>
+
+                    <div class="price-item">
+                        <div class="price-label">
+                            <span>Riverside HF-1025</span>
+                            <strong>16,5 triệu</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="price-fill" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div class="price-item">
+                        <div class="price-label">
+                            <span>Vườn Phố HF-1026</span>
+                            <strong>13 triệu</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="price-fill" style="width:79%"></div>
+                        </div>
+                    </div>
+
+                    <div class="price-item">
+                        <div class="price-label">
+                            <span>An Nhiên HF-1024</span>
+                            <strong>15 triệu</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="price-fill" style="width:91%"></div>
+                        </div>
+                    </div>
+
+                    <p class="muted small note">
+                        Giá chưa bao gồm phí quản lý. Hãy xác minh thông tin
+                        trước khi quyết định.
+                    </p>
+                </article>
+
+                <article class="panel ai-summary">
+                    <h2>AI tổng hợp cho bạn</h2>
+
+                    <span class="saved-label" id="analysisStatus">
+                        ✓ Đã lưu phân tích
+                    </span>
+
+                    <p>
+                        An Nhiên phù hợp 94% với nhu cầu của Minh An.
+                        Tổng chi phí dự kiến là 15,8 triệu đồng/tháng.
+                    </p>
+
+                    <p class="muted">
+                        AI chỉ hỗ trợ. Bạn có thể chấp nhận, sửa,
+                        từ chối hoặc lưu gợi ý.
+                    </p>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="acceptBtn">
+                            Chấp nhận
+                        </button>
+                        <button class="btn btn-outline" id="reviseBtn">
+                            Sửa
+                        </button>
+                        <button class="btn btn-outline" id="rejectBtn">
+                            Từ chối
+                        </button>
+                        <button class="btn btn-outline" id="saveAnalysis">
+                            Lưu
+                        </button>
+                    </div>
+
+                    <button class="btn btn-question" id="questionBtn">
+                        ✧ Hỗ trợ đặt câu hỏi
+                    </button>
+
+                    <div class="question-area hidden" id="questionArea">
+                        <label for="questionInput">Bạn muốn hỏi AI điều gì?</label>
+                        <textarea id="questionInput" rows="3"
+                            placeholder="Ví dụ: Căn hộ nào tiết kiệm nhất?"></textarea>
+                        <button class="btn btn-primary" id="sendQuestion">
+                            Gửi câu hỏi
+                        </button>
+                        <p id="answerText" class="answer-text"></p>
+                    </div>
+
+                    <p id="actionMessage" class="action-message" aria-live="polite"></p>
+                </article>
+            </section>
+
+            <footer class="footer">
+                <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+            </footer>
+        </main>
+    </div>
+    <script src="../js/ai.js" defer></script>
+</body>
+</html>
