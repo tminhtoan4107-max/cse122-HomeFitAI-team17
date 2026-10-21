@@ -1,137 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeFit AI - Quản lý danh mục</title>
-    <link rel="stylesheet" href="../css/danh_muc.css">
+    <link rel="stylesheet" href="../../css/danh_muc.css">
 </head>
 <body>
     <div class="app">
+        <!-- Thanh đầu trang -->
         <header class="topbar">
             <div class="logo">
                 <div class="logo-icon">⌂</div>
-                <span>HomeFit AI</span>
+                <strong>HomeFit AI</strong>
             </div>
 
             <nav class="top-nav">
-                <a href="../quan_tri/danh_muc.html" class="active">Danh mục</a>
+                <a class="active" href="../quan_tri/danh_muc.html">Danh mục</a>
                 <a href="../quan_tri/tai_khoan.html">Quản lý tài khoản</a>
                 <a href="../quan_tri/phan_quyen.html">Phân quyền</a>
                 <a href="../ai.html">AI</a>
             </nav>
 
             <div class="user-info">
-                <span class="notification">♧</span>
-                <span class="role-badge">Quản trị viên</span>
+                <span class="role">Quản trị viên</span>
                 <div class="avatar">QT</div>
-                <button class="btn btn-outline" id="logoutBtn">Đăng xuất</button>
+                <button class="btn btn-outline logout">Đăng xuất</button>
             </div>
         </header>
 
         <div class="layout">
+            <!-- Thanh bên -->
             <aside class="sidebar">
                 <h4>KHÔNG GIAN LÀM VIỆC</h4>
 
                 <nav class="side-nav">
-                    <a href="../quan_tri/danh_muc.html" class="side-link active">
-                        <span>▦</span> Danh mục
-                    </a>
-                    <a href="../quan_tri/tai_khoan.html" class="side-link">
-                        <span>♙</span> Quản lý tài khoản
-                    </a>
-                    <a href="../quan_tri/phan_quyen.html" class="side-link">
-                        <span>♧</span> Phân quyền
-                    </a>
-                    <a href="../ai.html" class="side-link">
-                        <span>✧</span> AI
-                    </a>
+                    <a class="selected" href="../quan_tri/danh_muc.html">▦ Danh mục</a>
+                    <a href="../quan_tri/tai_khoan.html">♙ Quản lý tài khoản</a>
+                    <a href="../quan_tri/phan_quyen.html">♧ Phân quyền</a>
+                    <a href="../ai.html">✧ AI</a>
                 </nav>
 
-                <div class="role-card">
+                <div class="current-role">
                     <p>VAI TRÒ HIỆN TẠI</p>
                     <strong>Quản trị viên</strong>
-                    <a href="#" id="sidebarLogout">Đăng xuất</a>
+                    <button class="text-button logout">Đăng xuất</button>
                 </div>
             </aside>
 
+            <!-- Nội dung chính -->
             <main class="main-content">
                 <section class="page-heading">
                     <div>
                         <p class="eyebrow">QUẢN TRỊ HỆ THỐNG</p>
                         <h1>Quản lý danh mục · Taxonomy rõ ràng</h1>
-                        <p class="subtitle">
+                        <p class="description">
                             Quản lý cấu trúc danh mục, bảng taxonomy và gợi ý nhãn từ AI.
                         </p>
                     </div>
-
-                    <button class="btn btn-outline" id="adminLogBtn">
-                        ◷ Nhật ký quản trị
+                    <button class="btn btn-outline audit">
+                        Nhật ký quản trị
                     </button>
                 </section>
 
-                <section class="stats">
+                <!-- Thống kê -->
+                <section class="statistics">
                     <article class="stat-card">
-                        <div class="stat-heading">
-                            <span>Mục taxonomy đang dùng</span>
-                            <span>▤</span>
-                        </div>
+                        <p>Mục taxonomy đang dùng</p>
                         <h2>36</h2>
-                        <p>4 nhóm danh mục chính</p>
+                        <span>4 nhóm danh mục chính</span>
                     </article>
 
                     <article class="stat-card">
-                        <div class="stat-heading blue-text">
-                            <span>Nhãn gợi ý AI</span>
-                            <span>✧</span>
-                        </div>
-                        <h2 class="blue-text">1</h2>
-                        <p>Nhãn “Làm việc tại nhà” đang chờ duyệt</p>
+                        <p>Nhãn gợi ý AI</p>
+                        <h2>1</h2>
+                        <span>Nhãn “Làm việc tại nhà” đang chờ duyệt</span>
                     </article>
 
                     <article class="stat-card">
-                        <div class="stat-heading blue-text">
-                            <span>Nhóm danh mục</span>
-                            <span>♧</span>
-                        </div>
-                        <h2 class="blue-text">4</h2>
-                        <p>Loại nhà ở, nhu cầu sống, tiện ích, khu vực</p>
+                        <p>Nhóm danh mục</p>
+                        <h2>4</h2>
+                        <span>Loại nhà ở, nhu cầu sống, tiện ích, khu vực</span>
                     </article>
                 </section>
 
                 <section class="content-grid">
+                    <!-- Cấu trúc danh mục -->
                     <aside class="category-panel">
                         <h3>Cấu trúc danh mục</h3>
 
-                        <button class="category-item" data-category="Loại nhà ở">
+                        <div class="category-item">
                             <strong>Loại nhà ở</strong>
-                            <span>8 mục · Căn hộ, nhà phố, studio</span>
-                        </button>
+                            <p>8 mục · Căn hộ, nhà phố, studio</p>
+                        </div>
 
-                        <button class="category-item selected" data-category="Nhu cầu sống">
+                        <div class="category-item selected">
                             <strong>Nhu cầu sống</strong>
-                            <span>14 mục · Di chuyển, xanh, thú cưng</span>
-                        </button>
+                            <p>14 mục · Di chuyển, xanh, thú cưng</p>
+                        </div>
 
-                        <button class="category-item" data-category="Tiện ích">
+                        <div class="category-item">
                             <strong>Tiện ích</strong>
-                            <span>10 mục · Ban công, thang máy</span>
-                        </button>
+                            <p>10 mục · Ban công, thang máy</p>
+                        </div>
 
-                        <button class="category-item" data-category="Khu vực">
+                        <div class="category-item">
                             <strong>Khu vực</strong>
-                            <span>4 mục · Thủ Đức, Bình Thạnh…</span>
-                        </button>
+                            <p>4 mục · Thủ Đức, Bình Thạnh…</p>
+                        </div>
 
-                        <button class="btn btn-add" id="addCategoryBtn">
+                        <button class="btn btn-primary add-category">
                             + Thêm nhóm danh mục
                         </button>
                     </aside>
 
+                    <!-- Bảng taxonomy -->
                     <section class="taxonomy-panel">
-                        <h3 id="taxonomyTitle">Taxonomy · Nhu cầu sống</h3>
-                        <p class="panel-description" id="taxonomyDescription">
+                        <h3>Taxonomy · Nhu cầu sống</h3>
+                        <p class="panel-description">
                             14 mục · Nhãn được dùng trong bộ lọc và giải thích độ phù hợp AI
                         </p>
 
@@ -146,46 +132,45 @@
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <tbody id="taxonomyTable">
+                                <tbody>
                                     <tr>
                                         <td>Gần nơi làm việc</td>
                                         <td>Di chuyển</td>
                                         <td>work_nearby</td>
                                         <td><span class="status">Đang dùng</span></td>
-                                        <td><button class="text-btn edit-btn">Chỉnh sửa</button></td>
+                                        <td><button class="text-button edit">Chỉnh sửa</button></td>
                                     </tr>
                                     <tr>
                                         <td>Có công viên</td>
                                         <td>Không gian xanh</td>
                                         <td>park_nearby</td>
                                         <td><span class="status">Đang dùng</span></td>
-                                        <td><button class="text-btn edit-btn">Chỉnh sửa</button></td>
+                                        <td><button class="text-button edit">Chỉnh sửa</button></td>
                                     </tr>
                                     <tr>
                                         <td>Cho nuôi thú cưng</td>
                                         <td>Sinh hoạt</td>
                                         <td>pet_friendly</td>
                                         <td><span class="status">Đang dùng</span></td>
-                                        <td><button class="text-btn edit-btn">Chỉnh sửa</button></td>
+                                        <td><button class="text-button edit">Chỉnh sửa</button></td>
                                     </tr>
                                     <tr>
                                         <td>Làm việc tại nhà</td>
                                         <td>Sinh hoạt</td>
                                         <td>home_workspace</td>
                                         <td><span class="status draft">Bản nháp</span></td>
-                                        <td><button class="text-btn review-btn">Xem &amp; duyệt</button></td>
+                                        <td><button class="text-button review">Xem &amp; duyệt</button></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div class="ai-suggestion">
-                            <span class="ai-icon">✧</span>
+                        <div class="ai-notice">
                             <p>
                                 AI đề xuất nhãn “Làm việc tại nhà”.
                                 Quản trị viên xác nhận trước khi áp dụng.
                             </p>
-                            <button class="btn btn-outline" id="suggestionBtn">Xem gợi ý</button>
+                            <button class="btn btn-outline suggestion">Xem gợi ý</button>
                         </div>
                     </section>
                 </section>
@@ -197,7 +182,6 @@
             </main>
         </div>
     </div>
-
-    <script src="../js/danh_muc.js"></script>
+    <script src="../../js/danh_muc.js" defer></script>
 </body>
 </html>
