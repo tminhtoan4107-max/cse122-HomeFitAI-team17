@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Xử lý báo cáo</title>
+    <link rel="stylesheet" href="../css/xu_ly_bao_cao.css">
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <div class="brand">
+                <div class="logo">⌂</div>
+                <span>HomeFit AI</span>
+            </div>
+
+            <nav class="top-nav">
+                <a href="#" data-view="duyet">Duyệt tin</a>
+                <a href="#" class="active" data-view="baocao">Xử lý báo cáo</a>
+                <a href="#" data-view="nhatky">Nhật ký xử lý</a>
+                <a href="#" data-view="ai">AI</a>
+            </nav>
+
+            <div class="user-area">
+                <span class="notification">♧</span>
+                <span class="role">Kiểm duyệt viên</span>
+                <div class="avatar">NH</div>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <div class="sidebar-heading">KHÔNG GIAN LÀM VIỆC</div>
+
+                <nav class="side-nav">
+                    <a href="#" data-view="duyet"><span class="nav-icon">▣</span>Duyệt tin</a>
+                    <a href="#" class="active" data-view="baocao"><span class="nav-icon">▤</span>Xử lý báo cáo</a>
+                    <a href="#" data-view="nhatky"><span class="nav-icon">◷</span>Nhật ký xử lý</a>
+                    <a href="#" data-view="ai"><span class="nav-icon">✧</span>AI</a>
+                </nav>
+
+                <div class="sidebar-card">
+                    <div class="muted small">VAI TRÒ HIỆN TẠI</div>
+                    <strong>Kiểm duyệt viên</strong>
+                    <a href="#" id="logout">Đăng xuất</a>
+                </div>
+
+                <div class="sidebar-card ai-card">
+                    <div class="ai-symbol">✧</div>
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
+                </div>
+
+                <a href="#" class="help-link">Trung tâm trợ giúp ↗</a>
+            </aside>
+
+            <main class="main-content">
+                <section class="page-heading">
+                    <div>
+                        <div class="eyebrow">TRUNG TÂM KIỂM DUYỆT</div>
+                        <h1 id="page-title">Xử lý báo cáo</h1>
+                        <p id="page-description">Xem báo cáo vi phạm, xác minh bằng chứng và lưu lại quyết định.</p>
+                    </div>
+                    <button class="btn btn-outline" id="view-log">◷ &nbsp; Nhật ký xử lý</button>
+                </section>
+
+                <section class="stats">
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Báo cáo đang mở</span>
+                            <span class="blue-icon">▤</span>
+                        </div>
+                        <div class="stat-number" id="open-count">2</div>
+                        <div class="stat-note">HF-1027 đang được xem xét</div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Đã xử lý trong tuần</span>
+                            <span class="blue-icon">▤</span>
+                        </div>
+                        <div class="stat-number" id="resolved-count">7</div>
+                        <div class="stat-note">Mọi quyết định có nhật ký</div>
+                    </article>
+                </section>
+
+                <section class="tabs">
+                    <button class="tab active" data-tab="pending">Báo cáo · 2</button>
+                    <button class="tab" data-tab="resolved">Đã xử lý · 7</button>
+                </section>
+
+                <section class="work-area">
+                    <aside class="queue panel">
+                        <h2>Hàng đợi cần xử lý</h2>
+                        <p class="muted">Báo cáo vi phạm</p>
+
+                        <button class="report-item selected" data-report="HF-1027">
+                            <span class="tag">Báo cáo · Đang xem xét</span>
+                            <strong>Studio An Phú · HF-1027</strong>
+                            <span class="report-meta">RP-021 · 2 phản ánh ảnh không đúng</span>
+                            <span class="report-meta">01/10/2026 · 08:40</span>
+                        </button>
+
+                        <button class="report-item second-report" data-report="HF-1024">
+                            <span class="tag">Báo cáo · Chờ xác minh</span>
+                            <strong>Studio An Nhiên · HF-1024</strong>
+                            <span class="report-meta">RP-020 · 1 phản ánh</span>
+                            <span class="report-meta">30/09/2026 · 15:20</span>
+                        </button>
+
+                        <a href="#" id="show-more">Xem thêm 1 mục →</a>
+                        <div class="queue-assignee">Người xử lý: Nguyễn Hà</div>
+                    </aside>
+
+                    <section class="detail panel">
+                        <div class="detail-heading">
+                            <div>
+                                <h2 id="report-title">RP-021 · Ảnh không đúng thực tế</h2>
+                                <p class="muted" id="report-subtitle">Tin đăng HF-1027 · Studio An Phú</p>
+                            </div>
+                        </div>
+
+                        <div class="status-row">
+                            <span class="tag" id="report-status">Đang xem xét</span>
+                            <span class="tag tag-outline" id="decision-status">Chưa có quyết định cuối</span>
+                        </div>
+
+                        <div class="evidence">
+                            <div class="evidence-image">
+                                <img src="../assets/images/{BED8C1DF-FD42-426A-A52F-BD1A7CC7626A}.png" alt="Ảnh minh họa tin đăng">
+                                <p class="muted image-caption">Ảnh trong tin HF-1027 · Cần xác minh nguồn</p>
+                            </div>
+
+                            <div class="evidence-text">
+                                <strong>Nội dung báo cáo</strong>
+                                <p id="report-content">“Ảnh phòng khách giống tin An Nhiên nhưng địa chỉ là studio An Phú. Nhờ kiểm tra lại.”</p>
+                                <p class="muted">2 phản ánh · 1 ảnh đính kèm</p>
+                                <p class="rule">Quy tắc liên quan: ảnh phải phản ánh đúng nhà được đăng.</p>
+                            </div>
+                        </div>
+
+                        <div class="ai-suggestion">
+                            <strong><span class="blue-icon">✧</span> AI hỗ trợ · Không phải kết luận vi phạm</strong>
+                            <p id="ai-content">Phát hiện bố cục ảnh tương tự HF-1024. Đề xuất yêu cầu ảnh gốc và giấy ủy quyền trước khi cho hiển thị lại.</p>
+                            <p class="muted">Bằng chứng còn thiếu. Kiểm duyệt viên cần xác minh với môi giới.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Lý do xử lý</label>
+                            <select id="reason">
+                                <option value="Yêu cầu ảnh gốc và xác minh quyền đăng tin">Yêu cầu ảnh gốc và xác minh quyền đăng tin</option>
+                                <option value="Ảnh không đúng thực tế">Ảnh không đúng thực tế</option>
+                                <option value="Tin đăng có dấu hiệu trùng lặp">Tin đăng có dấu hiệu trùng lặp</option>
+                                <option value="Không đủ bằng chứng vi phạm">Không đủ bằng chứng vi phạm</option>
+                            </select>
+                        </div>
+
+                        <div class="response-box">
+                            <label for="response">Phản hồi gửi môi giới</label>
+                            <textarea id="response" rows="3">Vui lòng bổ sung ảnh gốc của Studio An Phú và giấy ủy quyền. Tin giữ trạng thái “Cần bổ sung” trong thời gian xác minh.</textarea>
+                        </div>
+
+                        <div class="actions">
+                            <button class="btn btn-primary" id="request-more">✧ &nbsp; Yêu cầu bổ sung</button>
+                            <button class="btn btn-outline" id="hide-listing">Ẩn tin</button>
+                            <button class="btn btn-outline" id="reject-report">Bác báo cáo</button>
+                            <button class="btn btn-outline" id="save-draft">Lưu nháp</button>
+                        </div>
+
+                        <p class="muted audit-note" id="action-note">Quyết định do Nguyễn Hà xác nhận. Lý do và thời gian sẽ được lưu vào nhật ký xử lý.</p>
+                        <div id="message" class="message" role="status" aria-live="polite"></div>
+                    </section>
+                </section>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="../js/xu_ly_bao_cao.js" defer></script>
+</body>
+</html>
