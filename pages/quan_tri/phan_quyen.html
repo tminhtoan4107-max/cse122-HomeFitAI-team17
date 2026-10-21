@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân quyền - HomeFit AI</title>
+    <link rel="stylesheet" href="../css/phan_quyen.css">
+</head>
+<body>
+    <header class="topbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">⌂</span>
+            <span>HomeFit AI</span>
+        </a>
+
+        <nav class="top-nav">
+            <a href="../quan_tri/danh_muc.html">Danh mục</a>
+            <a href="../quan_tri/tai_khoan.html">Quản lý tài khoản</a>
+            <a href="../quan_tri/phan_quyen.html" class="active">Phân quyền</a>
+            <a href="../ai.html">AI</a>
+        </nav>
+
+        <div class="profile">
+            <span class="role-badge">Quản trị viên</span>
+            <span class="avatar">QT</span>
+            <a href="#">Tài khoản</a>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <p class="sidebar-heading">KHÔNG GIAN LÀM VIỆC</p>
+
+            <nav class="side-nav">
+                <a href="../quan_tri/danh_muc.html">Danh mục</a>
+                <a href="../quan_tri/tai_khoan.html">Quản lý tài khoản</a>
+                <a href="../quan_tri/phan_quyen.html" class="active">Phân quyền</a>
+                <a href="../ai.html">AI</a>
+            </nav>
+
+            <div class="logged-user">
+                <p>ĐÃ ĐĂNG NHẬP</p>
+                <strong>Quản trị viên</strong>
+                <span>Quản trị</span>
+                <a href="#" id="logoutBtn">Đăng xuất ↗</a>
+            </div>
+
+            <div class="ai-note">
+                <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
+            </div>
+
+            <a href="#" class="help-link">Trung tâm trợ giúp ↗</a>
+        </aside>
+
+        <main class="main-content">
+            <section class="page-heading">
+                <div>
+                    <p class="eyebrow">QUẢN TRỊ · QUẢN TRỊ VIÊN</p>
+                    <h1>Phân quyền theo trách nhiệm</h1>
+                    <p class="muted">
+                        Xem quyền của bốn vai trò và xác minh tài khoản
+                        trước khi cấp quyền vận hành.
+                    </p>
+                </div>
+                <button class="btn btn-outline" id="openAI">
+                    Mở AI hỗ trợ
+                </button>
+            </section>
+
+            <section class="panel">
+                <h2>Ma trận quyền · 4 vai trò</h2>
+                <p class="muted small">
+                    ✓ Được phép · — Không được phép · AI chỉ hỗ trợ
+                    các trách nhiệm của vai trò hiện tại.
+                </p>
+
+                <div class="table-wrap">
+                    <table class="permission-table">
+                        <thead>
+                            <tr>
+                                <th>Nghiệp vụ</th>
+                                <th>Người tìm nhà</th>
+                                <th>Môi giới</th>
+                                <th>Kiểm duyệt</th>
+                                <th>Quản trị</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tìm nhà theo nhu cầu</td>
+                                <td>✓</td><td>—</td><td>—</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Lưu nhà</td>
+                                <td>✓ Nhà của mình</td><td>—</td><td>—</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>So sánh nhà</td>
+                                <td>✓</td><td>—</td><td>—</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Quản lý tin đăng</td>
+                                <td>—</td><td>✓ Tin của mình</td><td>—</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Chăm sóc khách hàng</td>
+                                <td>—</td><td>✓ Khách của mình</td><td>—</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Tạo / sửa tin; gửi duyệt</td>
+                                <td>—</td><td>✓ Sau xác minh</td><td>—</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Duyệt tin</td>
+                                <td>—</td><td>—</td><td>✓ Xác nhận thủ công</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Xử lý báo cáo</td>
+                                <td>—</td><td>—</td><td>✓ Xác minh bằng chứng</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Xem nhật ký xử lý</td>
+                                <td>—</td><td>—</td><td>✓</td><td>—</td>
+                            </tr>
+                            <tr>
+                                <td>Quản lý danh mục</td>
+                                <td>—</td><td>—</td><td>—</td><td>✓</td>
+                            </tr>
+                            <tr>
+                                <td>Quản lý tài khoản</td>
+                                <td>—</td><td>—</td><td>—</td><td>✓</td>
+                            </tr>
+                            <tr>
+                                <td>Cấp / thu hồi quyền</td>
+                                <td>—</td><td>—</td><td>—</td><td>✓ Xác nhận + nhật ký</td>
+                            </tr>
+                            <tr>
+                                <td>AI theo vai trò</td>
+                                <td>✓ Tìm / Lưu / So sánh</td>
+                                <td>✓ Tin / Khách / Tạo tin</td>
+                                <td>✓ Duyệt / Báo cáo / Nhật ký</td>
+                                <td>✓ Danh mục / Tài khoản / Quyền</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="muted small">
+                    Tài khoản cá nhân và Đăng xuất là tiện ích hồ sơ.
+                    Môi giới không tự duyệt tin; kiểm duyệt viên không cấp quyền.
+                </p>
+            </section>
+
+            <section class="work-grid">
+                <div class="panel account-panel">
+                    <h2>Tài khoản được chọn · Phúc Khang</h2>
+
+                    <label for="accountSelect">Tìm tài khoản</label>
+                    <select id="accountSelect">
+                        <option value="phuckhang">
+                            Phúc Khang · phuckhang@example.com
+                        </option>
+                        <option value="minhan">
+                            Minh An · minhan@example.com
+                        </option>
+                        <option value="thanhha">
+                            Thanh Hà · thanhha@example.com
+                        </option>
+                    </select>
+
+                    <span class="status-badge" id="accountStatus">
+                        Môi giới · Chờ xác minh
+                    </span>
+
+                    <p class="muted small" id="accountUpdated">
+                        Cập nhật: 01/10/2026 · Quyền vận hành môi giới chưa được kích hoạt.
+                    </p>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="currentRole">Vai trò hiện tại</label>
+                            <input id="currentRole" value="Môi giới · Chờ xác minh" readonly>
+                        </div>
+                        <div>
+                            <label for="proposedRole">Vai trò đề xuất</label>
+                            <select id="proposedRole">
+                                <option value="Người tìm nhà">Người tìm nhà</option>
+                                <option value="Môi giới" selected>Môi giới</option>
+                                <option value="Kiểm duyệt">Kiểm duyệt</option>
+                                <option value="Quản trị">Quản trị</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3>Quyền theo vai trò đề xuất</h3>
+                    <ul id="permissionPreview" class="permission-list">
+                        <li>✓ Quản lý tin của mình</li>
+                        <li>✓ Quản lý khách hàng của mình</li>
+                        <li>✓ Tạo, sửa tin và gửi kiểm duyệt</li>
+                        <li>✓ AI hỗ trợ môi giới</li>
+                        <li class="denied">— Duyệt tin, xử lý báo cáo</li>
+                        <li class="denied">— Quản lý danh mục, cấp quyền</li>
+                    </ul>
+
+                    <label for="reason">Lý do thay đổi quyền *</label>
+                    <textarea id="reason" rows="4">Cấp quyền môi giới sau khi hoàn tất đối chiếu hồ sơ và xác minh danh tính Phúc Khang.</textarea>
+                </div>
+
+                <div class="panel verify-panel">
+                    <h2>Xác minh trước khi cấp quyền</h2>
+
+                    <div class="check-list">
+                        <label><input type="checkbox" checked disabled> Email đã xác thực</label>
+                        <label><input type="checkbox" id="identityCheck"> Đối chiếu danh tính / giấy tờ</label>
+                        <label><input type="checkbox" id="documentCheck"> Kiểm tra hồ sơ môi giới</label>
+                        <label><input type="checkbox" id="contactCheck"> Xác nhận thông tin liên hệ</label>
+                    </div>
+
+                    <p class="verification-status" id="verificationStatus">
+                        Còn thiếu xác minh danh tính và hồ sơ.
+                    </p>
+
+                    <p class="muted small">
+                        Chưa được phép cấp quyền vận hành khi các bước bắt buộc
+                        chưa hoàn tất. Không cấp quyền kiểm duyệt hoặc quản trị
+                        cho tài khoản chỉ đăng ký làm môi giới.
+                    </p>
+
+                    <button class="btn btn-outline btn-full" id="viewVerification">
+                        Xem hồ sơ xác minh
+                    </button>
+
+                    <button class="btn btn-outline btn-full" id="reviewAI">
+                        Nhờ AI rà soát quyền
+                    </button>
+
+                    <label class="confirm-label">
+                        <input type="checkbox" id="confirmCheck">
+                        Tôi đã xác minh hồ sơ và xác nhận quyền đề xuất phù hợp.
+                    </label>
+
+                    <button class="btn btn-primary btn-full" id="savePermission" disabled>
+                        Xác nhận & lưu quyền
+                    </button>
+
+                    <button class="btn btn-outline btn-full" id="saveDraft">
+                        Lưu nháp xác minh
+                    </button>
+
+                    <p class="muted small">
+                        Khi xác nhận, ghi lại người thực hiện, thời gian,
+                        quyền trước/sau và lý do vào nhật ký quản trị.
+                    </p>
+                </div>
+            </section>
+
+            <section class="notice" id="resultNotice" aria-live="polite">
+                <strong id="noticeTitle">Chưa có thay đổi quyền trong phiên này</strong>
+                <p id="noticeText">
+                    Người xác nhận: Quản trị viên · Phúc Khang vẫn Chờ xác minh.
+                    Lưu nháp chỉ lưu ghi chú, không kích hoạt quyền.
+                </p>
+            </section>
+
+            <footer class="footer">
+                <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+            </footer>
+        </main>
+    </div>
+
+    <dialog id="messageDialog">
+        <div class="dialog-content">
+            <h2 id="dialogTitle">Thông báo</h2>
+            <p id="dialogMessage"></p>
+            <button class="btn btn-primary" id="closeDialog">Đóng</button>
+        </div>
+    </dialog>
+    <script src="../js/phan_quyen.js" defer></script>
+</body>
+</html>
