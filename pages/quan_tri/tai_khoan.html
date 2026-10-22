@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Quản lý tài khoản</title>
+    <link rel="stylesheet" href="../../css/tai_khoan.css">
+    
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <a href="#" class="logo">
+                <div class="logo-icon">⌂</div>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a href="../quan_tri/danh_muc.html">Danh mục</a>
+                <a href="../quan_tri/tai_khoan.html" class="active">Quản lý tài khoản</a>
+                <a href="../quan_tri/phan_quyen.html">Phân quyền</a>
+                <a href="../ai.html">AI</a>
+            </nav>
+
+            <div class="user-info">
+                <span class="shield">🔔</span>
+                <span class="role-badge">Quản trị viên</span>
+                <div class="avatar">QT</div>
+                <button class="btn btn-outline logout">Đăng xuất</button>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <h3>KHÔNG GIAN LÀM VIỆC</h3>
+
+                <nav class="side-nav">
+                    <a href="../quan_tri/danh_muc.html">▦ <span>Danh mục</span></a>
+                    <a href="../quan_tri/tai_khoan.html" class="active">♙ <span>Quản lý tài khoản</span></a>
+                    <a href="../quan_tri/phan_quyen.html">♧ <span>Phân quyền</span></a>
+                    <a href="../ai.html">✧ <span>AI</span></a>
+                </nav>
+
+                <div class="role-card">
+                    <p>VAI TRÒ HIỆN TẠI</p>
+                    <strong>Quản trị viên</strong>
+                    <button class="text-button logout">Đăng xuất</button>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <section class="page-heading">
+                    <div>
+                        <p class="eyebrow">QUẢN TRỊ HỆ THỐNG</p>
+                        <h1>Quản lý tài khoản · Phân quyền an toàn</h1>
+                        <p class="description">
+                            Quản lý tài khoản, phân quyền, mời tài khoản và theo dõi trạng thái hoạt động.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-outline" id="auditBtn">
+                        ◷ Nhật ký quản trị
+                    </button>
+                </section>
+
+                <section class="stats">
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Tài khoản đang hoạt động</span>
+                            <span>♙</span>
+                        </div>
+                        <h2 id="activeCount">1.012</h2>
+                        <p>1.048 tài khoản tổng cộng</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Chờ xác minh / tạm khóa</span>
+                            <span>♧</span>
+                        </div>
+                        <h2>24 / 12</h2>
+                        <p>Phân quyền do quản trị viên duyệt</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Vai trò đang dùng</span>
+                            <span>♧</span>
+                        </div>
+                        <h2>4</h2>
+                        <p>Người tìm nhà, môi giới, kiểm duyệt, quản trị</p>
+                    </article>
+                </section>
+
+                <section class="account-panel">
+                    <div class="panel-heading">
+                        <h2>Tài khoản &amp; phân quyền</h2>
+                        <p>
+                            Không tự động cấp quyền vận hành · Thay đổi được ghi vào nhật ký quản trị
+                        </p>
+                    </div>
+
+                    <form id="searchForm" class="filters">
+                        <div class="form-group search-group">
+                            <label for="searchInput">Tìm kiếm tài khoản</label>
+                            <input
+                                type="search"
+                                id="searchInput"
+                                placeholder="Họ tên hoặc email"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="roleFilter">Vai trò</label>
+                            <select id="roleFilter">
+                                <option value="">Tất cả vai trò</option>
+                                <option>Người tìm nhà</option>
+                                <option>Môi giới</option>
+                                <option>Kiểm duyệt viên</option>
+                                <option>Quản trị viên</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="statusFilter">Trạng thái</label>
+                            <select id="statusFilter">
+                                <option value="">Tất cả trạng thái</option>
+                                <option>Hoạt động</option>
+                                <option>Chờ xác minh</option>
+                                <option>Tạm khóa</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="inviteBtn">
+                            + Mời tài khoản
+                        </button>
+                    </form>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tài khoản</th>
+                                    <th>Vai trò</th>
+                                    <th>Trạng thái</th>
+                                    <th>Cập nhật</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="accountTable">
+                                <tr data-role="Người tìm nhà" data-status="Hoạt động">
+                                    <td>
+                                        <strong>Nguyễn Minh An</strong>
+                                        <span class="email">minhan@example.com</span>
+                                    </td>
+                                    <td>Người tìm nhà</td>
+                                    <td><span class="status">Hoạt động</span></td>
+                                    <td>01/10/2026</td>
+                                    <td><button class="table-action profile-btn">Xem hồ sơ</button></td>
+                                </tr>
+
+                                <tr data-role="Môi giới" data-status="Hoạt động">
+                                    <td>
+                                        <strong>Trần Lan Anh</strong>
+                                        <span class="email">lananh@example.com</span>
+                                    </td>
+                                    <td>Môi giới</td>
+                                    <td><span class="status">Hoạt động</span></td>
+                                    <td>01/10/2026</td>
+                                    <td><button class="table-action permission-btn">Quản lý quyền</button></td>
+                                </tr>
+
+                                <tr data-role="Kiểm duyệt viên" data-status="Hoạt động">
+                                    <td>
+                                        <strong>Nguyễn Hà</strong>
+                                        <span class="email">nguyenha@example.com</span>
+                                    </td>
+                                    <td>Kiểm duyệt viên</td>
+                                    <td><span class="status">Hoạt động</span></td>
+                                    <td>30/09/2026</td>
+                                    <td><button class="table-action permission-btn">Quản lý quyền</button></td>
+                                </tr>
+
+                                <tr data-role="Môi giới" data-status="Chờ xác minh">
+                                    <td>
+                                        <strong>Phúc Khang</strong>
+                                        <span class="email">phuckhang@example.com</span>
+                                    </td>
+                                    <td>Môi giới</td>
+                                    <td><span class="status pending">Chờ xác minh</span></td>
+                                    <td>01/10/2026</td>
+                                    <td><button class="table-action verify-btn">Xác minh &amp; cấp quyền</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p id="emptyMessage" class="empty-message" hidden>
+                            Không tìm thấy tài khoản phù hợp.
+                        </p>
+                    </div>
+
+                    <div class="table-footer">
+                        <span id="resultCount">Hiển thị 4 / 1.048 tài khoản</span>
+                        <div class="pagination">
+                            <button type="button" id="prevPage">Trước</button>
+                            <button type="button" class="current-page">1</button>
+                            <button type="button" id="nextPage">Sau →</button>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="../../js/tai_khoan.js" defer></script>
+</body>
+</html>

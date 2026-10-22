@@ -1,172 +1,221 @@
-console.log("tai_khoan.js đã được tải!");
-document.addEventListener("DOMContentLoaded", function () {
-    const editButton = document.querySelector("#nutChinhSua");
-    const changePasswordButton = document.querySelector("#nutDoiMatKhau");
-    const logoutButton = document.querySelector(".dang-xuat");
 
-    // Đọc dữ liệu đã lưu an toàn
-    function getProfile() {
-        try {
-            return JSON.parse(localStorage.getItem("homefitProfile")) || {};
-        } catch (error) {
-            return {};
+const searchInput = document.getElementById("searchInput");
+const roleFilter = document.getElementById("roleFilter");
+const statusFilter = document.getElementById("statusFilter");
+const accountTable = document.getElementById("accountTable");
+const resultCount = document.getElementById("resultCount");
+const emptyMessage = document.getElementById("emptyMessage");
+
+function filterAccounts() {
+    const keyword = searchInput.value.trim().toLowerCase();
+    const selectedRole = roleFilter.value;
+    const selectedStatus = statusFilter.value;
+
+    const rows = accountTable.querySelectorAll("tr");
+    let visibleCount = 0;
+
+    rows.forEach(function(row) {
+        const accountInfo = row.cells[0].textContent.toLowerCase();
+        const role = row.dataset.role;
+        const status = row.dataset.status;
+
+        const matchKeyword = accountInfo.includes(keyword);
+        const matchRole = selectedRole === "" || role === selectedRole;
+        const matchStatus = selectedStatus === "" || status === selectedStatus;
+
+        if (matchKeyword && matchRole && matchStatus) {
+            row.hidden = false;
+            visibleCount++;
+        } else {
+            row.hidden = true;
+        }
+    });
+
+    resultCount.textContent = "Hiển thị " + visibleCount + " / 1.048 tài khoản";
+    emptyMessage.hidden = visibleCount !== 0;
+}
+
+searchInput.addEventListener("input", filterAccounts);
+roleFilter.addEventListener("change", filterAccounts);
+statusFilter.addEventListener("change", filterAccounts);
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    filterAccounts();
+});
+
+document.getElementById("inviteBtn").addEventListener("click", function() {
+    const name = prompt("Nhập họ tên tài khoản:");
+
+    if (!name || !name.trim()) {
+        return;
+    }
+
+    const email = prompt("Nhập email tài khoản:");
+
+    if (!email || !email.trim()) {
+        return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+        alert("Email không hợp lệ!");
+        return;
+    }
+
+    const role = prompt(
+        "Nhập vai trò:\n1. Người tìm nhà\n2. Môi giới\n3. Kiểm duyệt viên\n4. Quản trị viên",
+        "Người tìm nhà"
+    );
+
+    const validRoles = [
+        "Người tìm nhà",
+        "Môi giới",
+        "Kiểm duyệt viên",
+        "Quản trị viên"
+    ];
+
+    if (!role || !validRoles.includes(role.trim())) {
+        alert("Vai trò không hợp lệ!");
+        return;
+    }
+
+    const row = document.createElement("tr");
+    row.dataset.role = role.trim();
+    row.dataset.status = "Chờ xác minh";
+
+    const accountCell = document.createElement("td");
+    const accountName = document.createElement("strong");
+    const accountEmail = document.createElement("span");
+
+    accountName.textContent = name.trim();
+    accountEmail.className = "email";
+    accountEmail.textContent = email.trim();
+
+    accountCell.append(accountName, accountEmail);
+
+    const roleCell = document.createElement("td");
+    roleCell.textContent = role.trim();
+
+    const statusCell = document.createElement("td");
+    const statusBadge = document.createElement("span");
+    statusBadge.className = "status pending";
+    statusBadge.textContent = "Chờ xác minh";
+    statusCell.appendChild(statusBadge);
+
+    const dateCell = document.createElement("td");
+    dateCell.textContent = new Date().toLocaleDateString("vi-VN");
+
+    const actionCell = document.createElement("td");
+    const verifyButton = document.createElement("button");
+    verifyButton.type = "button";
+    verifyButton.className = "table-action verify-btn";
+    verifyButton.textContent = "Xác minh & cấp quyền";
+    actionCell.appendChild(verifyButton);
+
+    row.append(
+        accountCell,
+        roleCell,
+        statusCell,
+        dateCell,
+        actionCell
+    );
+
+    accountTable.appendChild(row);
+
+    alert("Đã thêm tài khoản vào danh sách chờ xác minh.");
+    filterAccounts();
+});
+
+accountTable.addEventListener("click", function(event) {
+    const button = event.target.closest("button");
+
+    if (!button) {
+        return;
+    }
+
+    const row = button.closest("tr");
+    const name = row.cells[0].querySelector("strong").textContent;
+
+    if (button.classList.contains("profile-btn")) {
+        const email = row.cells[0].querySelector(".email").textContent;
+
+        alert(
+            "Thông tin tài khoản\n" +
+            "Họ tên: " + name + "\n" +
+            "Email: " + email + "\n" +
+            "Vai trò: " + row.dataset.role + "\n" +
+            "Trạng thái: " + row.dataset.status
+        );
+    }
+
+    if (button.classList.contains("permission-btn")) {
+        const newRole = prompt(
+            "Nhập vai trò mới cho " + name + ":",
+            row.dataset.role
+        );
+
+        const validRoles = [
+            "Người tìm nhà",
+            "Môi giới",
+            "Kiểm duyệt viên",
+            "Quản trị viên"
+        ];
+
+        if (newRole && validRoles.includes(newRole.trim())) {
+            row.dataset.role = newRole.trim();
+            row.cells[1].textContent = newRole.trim();
+            filterAccounts();
+            alert("Đã cập nhật vai trò trong giao diện.");
+        } else if (newRole !== null) {
+            alert("Vai trò không hợp lệ!");
         }
     }
 
-    // Cập nhật thông tin lên giao diện
-    function renderProfile(profile) {
-        const name = profile.fullName || "Minh An";
+    if (button.classList.contains("verify-btn")) {
+        const confirmed = confirm(
+            "Bạn có muốn xác minh tài khoản " + name + " không?"
+        );
 
-        document.querySelectorAll(
-            ".ten-nguoi-dung, .thong-tin-nguoi-dung h2"
-        ).forEach(el => el.textContent = name);
+        if (confirmed) {
+            row.dataset.status = "Hoạt động";
 
-        const initials = name.trim().split(/\s+/)
-            .filter(Boolean).slice(-2)
-            .map(word => word[0]).join("").toUpperCase();
+            const statusBadge = row.querySelector(".status");
+            statusBadge.textContent = "Hoạt động";
+            statusBadge.className = "status";
 
-        document.querySelectorAll(
-            ".anh-dai-dien-nho, .anh-dai-dien-lon"
-        ).forEach(el => el.textContent = initials);
+            button.textContent = "Xem hồ sơ";
 
-        const values = [
-            name, profile.birthday, profile.gender,
-            profile.location, profile.email, profile.phone
-        ];
+            button.classList.remove("verify-btn");
+            button.classList.add("profile-btn");
 
-        document.querySelectorAll(
-            ".cot-trai .gia-tri-thong-tin"
-        ).forEach((el, index) => {
-            if (index < values.length) {
-                el.textContent = values[index] || "Chưa cập nhật";
-            }
-        });
+            filterAccounts();
+            alert("Đã cập nhật trạng thái tài khoản trên giao diện.");
+        }
     }
+});
 
-    // Chỉnh sửa thông tin cá nhân
-    if (editButton) {
-        editButton.addEventListener("click", function () {
-            let form = document.querySelector("#profile-form");
+document.getElementById("auditBtn").addEventListener("click", function() {
+    alert(
+        "NHẬT KÝ QUẢN TRỊ\n\n" +
+        "Đây là giao diện minh họa. " +
+        "Nhật ký thực tế cần được lưu và truy xuất từ hệ thống."
+    );
+});
 
-            // Nếu form đã tồn tại thì ẩn/hiện form
-            if (form) {
-                form.style.display =
-                    form.style.display === "none" ? "grid" : "none";
-                return;
-            }
+document.querySelectorAll(".logout").forEach(function(button) {
+    button.addEventListener("click", function() {
+        const confirmed = confirm("Bạn có muốn đăng xuất không?");
 
-            form = document.createElement("form");
-            form.id = "profile-form";
-            form.style.cssText =
-                "padding:20px;margin:20px 0;border:1px solid #ddd;" +
-                "border-radius:8px;display:grid;gap:12px;max-width:600px";
+        if (confirmed) {
+            alert("Chức năng đăng xuất cần được kết nối với hệ thống đăng nhập.");
+        }
+    });
+});
 
-            const saved = getProfile();
+document.getElementById("prevPage").addEventListener("click", function() {
+    alert("Đây là trang đầu tiên trong dữ liệu minh họa.");
+});
 
-            const fields = [
-                ["fullName", "Họ và tên", "text"],
-                ["birthday", "Ngày sinh", "date"],
-                ["gender", "Giới tính", "text"],
-                ["location", "Khu vực sinh sống", "text"],
-                ["email", "Email", "email"],
-                ["phone", "Số điện thoại", "tel"]
-            ];
-
-            fields.forEach(([name, title, type]) => {
-                const label = document.createElement("label");
-                label.textContent = title;
-
-                const input = document.createElement("input");
-                input.name = name;
-                input.type = type;
-                input.value = saved[name] || "";
-                input.style.cssText =
-                    "display:block;width:100%;box-sizing:border-box;" +
-                    "padding:9px;margin-top:5px";
-
-                if (name === "fullName") input.required = true;
-
-                label.appendChild(input);
-                form.appendChild(label);
-            });
-
-            const saveButton = document.createElement("button");
-            saveButton.type = "submit";
-            saveButton.textContent = "Lưu thông tin";
-            saveButton.style.cssText = "padding:10px;cursor:pointer";
-            form.appendChild(saveButton);
-
-            const anchor = document.querySelector(".khu-vuc-thong-tin");
-            const main = document.querySelector("main");
-
-            if (anchor) {
-                anchor.parentNode.insertBefore(form, anchor);
-            } else if (main) {
-                main.appendChild(form);
-            } else {
-                return;
-            }
-
-            // Kiểm tra và lưu thông tin
-            form.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const data = Object.fromEntries(new FormData(form));
-
-                data.fullName = (data.fullName || "").trim();
-                data.email = (data.email || "").trim();
-                data.phone = (data.phone || "").trim();
-
-                if (!data.fullName) {
-                    alert("Vui lòng nhập họ và tên.");
-                    return;
-                }
-
-                if (data.email &&
-                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-                    alert("Email không hợp lệ.");
-                    return;
-                }
-
-                if (data.phone &&
-                    !/^[0-9+\s()-]{9,15}$/.test(data.phone)) {
-                    alert("Số điện thoại không hợp lệ.");
-                    return;
-                }
-
-                try {
-                    localStorage.setItem(
-                        "homefitProfile", JSON.stringify(data)
-                    );
-
-                    renderProfile(data);
-                    form.style.display = "none";
-                    alert("Lưu thông tin thành công!");
-                } catch (error) {
-                    alert("Không thể lưu dữ liệu trên trình duyệt.");
-                }
-            });
-        });
-    }
-
-    // Đổi mật khẩu: hiện chưa kết nối hệ thống xác thực
-    if (changePasswordButton) {
-        changePasswordButton.addEventListener("click", function () {
-            alert("Chức năng đổi mật khẩu cần kết nối hệ thống xác thực.");
-        });
-    }
-
-    // Đăng xuất
-    if (logoutButton) {
-        logoutButton.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            if (confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
-                window.location.href = "login.html";
-            }
-        });
-    }
-
-    // Khôi phục thông tin khi mở trang
-    renderProfile(getProfile());
+document.getElementById("nextPage").addEventListener("click", function() {
+    alert("Chức năng chuyển trang cần được bổ sung khi có dữ liệu đầy đủ.");
 });

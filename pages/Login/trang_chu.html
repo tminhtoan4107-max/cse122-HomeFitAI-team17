@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Khám phá nhà ở</title>
+    <link rel="stylesheet" href="../../css/trang_chu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⌂</span>
+            <span>HomeFit AI</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#tim-nha" class="active">Tìm nhà</a>
+            <a href="../Login/tai_khoan.html">Tài khoản</a>
+            <a href="../ai.html">AI</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="../Login/dang_nhap.html" class="btn btn-outline">Đăng nhập</a>
+            <a href="../Login/tao_tk.html" class="btn btn-primary">Tạo tài khoản</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">Một ngôi nhà hợp với cách bạn sống</span>
+                <h1>Khám phá nhà ở theo nhu cầu sống</h1>
+                <p>Không chỉ là diện tích và giá. Tìm nơi gần công việc, đủ xanh và phù hợp với nhịp sống của bạn.</p>
+
+                <div class="hero-benefits">
+                    <span>✓ Tin đăng được kiểm duyệt</span>
+                    <span>✓ Gợi ý có giải thích</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80"
+                     alt="Không gian nhà ở hiện đại">
+                <div class="image-caption">⌂ Gần thiên nhiên. Gần cuộc sống bạn muốn.</div>
+            </div>
+        </section>
+
+        <section class="search-section" id="tim-nha">
+            <form id="searchForm" class="search-box">
+                <div class="search-tabs">
+                    <button type="button" class="tab active" data-type="rent">Thuê nhà</button>
+                    <button type="button" class="tab" data-type="buy">Mua nhà</button>
+                    <span class="search-hint">Bắt đầu từ điều quan trọng với bạn</span>
+                </div>
+
+                <div class="search-fields">
+                    <div class="field">
+                        <label for="area">Khu vực</label>
+                        <select id="area">
+                            <option value="all">Tất cả khu vực</option>
+                            <option value="Thủ Đức">Thủ Đức</option>
+                            <option value="Bình Thạnh">Bình Thạnh</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="budget">Ngân sách / tháng</label>
+                        <select id="budget">
+                            <option value="all">Tất cả ngân sách</option>
+                            <option value="10">Dưới 10 triệu</option>
+                            <option value="15">10 – 15 triệu</option>
+                            <option value="20">15 – 20 triệu</option>
+                            <option value="30">Trên 20 triệu</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="space">Không gian sống</label>
+                        <select id="space">
+                            <option value="all">Tất cả loại nhà</option>
+                            <option value="apartment">Căn hộ</option>
+                            <option value="house">Nhà riêng</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary search-button">⌕ Tìm nhà phù hợp</button>
+                </div>
+            </form>
+
+            <div class="preferences">
+                <strong>Ưu tiên của bạn:</strong>
+                <label class="chip"><input type="checkbox" name="priority" value="work" checked> Gần nơi làm việc</label>
+                <label class="chip"><input type="checkbox" name="priority" value="green" checked> Có công viên</label>
+                <label class="chip"><input type="checkbox" name="priority" value="pet" checked> Cho nuôi thú cưng</label>
+                <button type="button" id="resetFilters" class="btn btn-outline">↻ Đặt lại bộ lọc</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Những nơi bạn có thể gọi là nhà</h2>
+                    <p id="resultSummary">Đang hiển thị các căn nhà phù hợp với bạn</p>
+                </div>
+
+                <div class="sort-control">
+                    <label for="sortBy">Sắp xếp:</label>
+                    <select id="sortBy">
+                        <option value="match">Phù hợp nhất</option>
+                        <option value="priceAsc">Giá thấp đến cao</option>
+                        <option value="priceDesc">Giá cao đến thấp</option>
+                        <option value="areaDesc">Diện tích lớn nhất</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="results-layout">
+                <div id="propertyGrid" class="property-grid">
+                    <article class="property-card"
+                        data-id="HF-1024" data-price="15" data-match="94"
+                        data-area="Thủ Đức" data-space="apartment"
+                        data-size="72" data-work="true" data-green="true"
+                        data-pet="true" data-house-type="rent">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80" alt="Căn hộ An Nhiên">
+                            <button class="favorite-btn" type="button" aria-label="Lưu căn hộ" aria-pressed="false">♡</button>
+                        </div>
+                        <div class="property-info">
+                            <div class="price-row">
+                                <h3 class="price" data-rent="15" data-buy="3.2">15 triệu/tháng</h3>
+                                <span class="match">94% phù hợp</span>
+                            </div>
+                            <h4>Căn hộ An Nhiên</h4>
+                            <p class="muted">Thảo Điền, Thủ Đức · HF-1024</p>
+                            <p>2 phòng ngủ · 2 phòng tắm · 72 m²</p>
+                            <div class="property-note">✓ 12 phút đến nơi làm việc · Có công viên</div>
+                            <button type="button" class="btn btn-outline detail-btn">Xem chi tiết</button>
+                        </div>
+                    </article>
+
+                    <article class="property-card"
+                        data-id="HF-1025" data-price="16.5" data-match="89"
+                        data-area="Bình Thạnh" data-space="apartment"
+                        data-size="76" data-work="true" data-green="true"
+                        data-pet="true" data-house-type="rent">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80" alt="Căn hộ Riverside Bình Thạnh">
+                            <button class="favorite-btn" type="button" aria-label="Lưu căn hộ" aria-pressed="false">♡</button>
+                        </div>
+                        <div class="property-info">
+                            <div class="price-row">
+                                <h3 class="price" data-rent="16.5" data-buy="3.8">16,5 triệu/tháng</h3>
+                                <span class="match">89% phù hợp</span>
+                            </div>
+                            <h4>Riverside Bình Thạnh</h4>
+                            <p class="muted">Phường 22, Bình Thạnh · HF-1025</p>
+                            <p>2 phòng ngủ · 2 phòng tắm · 76 m²</p>
+                            <div class="property-note">✓ Ban công xanh · Cho nuôi thú cưng</div>
+                            <button type="button" class="btn btn-outline detail-btn">Xem chi tiết</button>
+                        </div>
+                    </article>
+
+                    <article class="property-card"
+                        data-id="HF-1026" data-price="13" data-match="86"
+                        data-area="Thủ Đức" data-space="apartment"
+                        data-size="68" data-work="false" data-green="true"
+                        data-pet="false" data-house-type="rent">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=700&q=80" alt="Căn hộ Vườn Phố">
+                            <button class="favorite-btn" type="button" aria-label="Lưu căn hộ" aria-pressed="false">♡</button>
+                        </div>
+                        <div class="property-info">
+                            <div class="price-row">
+                                <h3 class="price" data-rent="13" data-buy="2.9">13 triệu/tháng</h3>
+                                <span class="match">86% phù hợp</span>
+                            </div>
+                            <h4>Căn hộ Vườn Phố</h4>
+                            <p class="muted">An Phú, Thủ Đức · HF-1026</p>
+                            <p>2 phòng ngủ · 2 phòng tắm · 68 m²</p>
+                            <div class="property-note">✓ Trong ngân sách · Gần siêu thị</div>
+                            <button type="button" class="btn btn-outline detail-btn">Xem chi tiết</button>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="ai-card" id="goi-y-ai">
+                    <div class="ai-title">✦ HomeFit AI gợi ý</div>
+                    <h3 id="aiPropertyName">An Nhiên hợp với bạn nhất</h3>
+                    <p id="aiExplanation">Phù hợp 94% với các ưu tiên đã chọn: gần nơi làm việc, nhiều cây xanh và có thể nuôi mèo.</p>
+                    <p class="ai-warning">Cần cân nhắc: phí quản lý 800.000đ/tháng chưa bao gồm trong giá thuê.</p>
+                    <button type="button" class="btn btn-primary btn-block" id="saveSuggestion">♡ Lưu gợi ý</button>
+                    <p class="disclaimer">Độ phù hợp là ước tính minh họa. Hãy xác minh thông tin trước khi quyết định.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="account-banner" id="tai-khoan">
+            <div>
+                <h3>Giữ lại lựa chọn. So sánh trước khi quyết định.</h3>
+                <p>Tạo tài khoản để lưu nhà, tùy chỉnh nhu cầu và theo dõi phản hồi từ môi giới.</p>
+            </div>
+            <a href="../Login/tao_tk.html" class="btn btn-primary">Tạo tài khoản miễn phí</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+        <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="../../js/trang_chu.js"></script>
+</body>
+</html>

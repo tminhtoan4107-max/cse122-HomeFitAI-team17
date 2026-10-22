@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Nhật ký xử lý</title>
+    <link rel="stylesheet" href="../../css/nhat_ky_xu_ly.css">
+    
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <a href="#" class="logo">
+                <span class="logo-icon">⌂</span>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a href="../kiem_duyet/duyet_tin.html">Duyệt tin</a>
+                <a href="../kiem_duyet/xu_ly_bao_cao.html">Xử lý báo cáo</a>
+                <a href="../kiem_duyet/nhat_ky_xu_ly.html" class="active">Nhật ký xử lý</a>
+                <a href="../ai.html">AI</a>
+            </nav>
+
+            <div class="account">
+                <span class="role-badge">Kiểm duyệt viên</span>
+                <span class="avatar">NH</span>
+                <a href="../Login/tao_tk.html">Tài khoản</a>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <div class="sidebar-heading">KHÔNG GIAN LÀM VIỆC</div>
+
+                <nav class="side-nav">
+                    <a href="../kiem_duyet/tin_dang.html">Duyệt tin</a>
+                    <a href="../kiem_duyet/xu_ly_bao_cao.html">Xử lý báo cáo</a>
+                    <a href="../kiem_duyet/nhat_ky_xu_ly.html" class="active">Nhật ký xử lý</a>
+                    <a href="../ai.html">AI</a>
+                </nav>
+
+                <div class="user-info">
+                    <span class="small-label">ĐÃ ĐĂNG NHẬP</span>
+                    <strong>Nguyễn Hà</strong>
+                    <span class="muted">Kiểm duyệt</span>
+                    <a href=" ../Login/trang_chu.html">Đăng xuất ↗</a>
+                </div>
+
+                <div class="ai-note">
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
+                </div>
+
+                <a href="../ai.html" class="help-link">Trung tâm trợ giúp ↗</a>
+            </aside>
+
+            <main class="main-content">
+                <section class="page-heading">
+                    <div>
+                        <div class="eyebrow">KIỂM DUYỆT · NGUYỄN HÀ</div>
+                        <h1>Nhật ký xử lý</h1>
+                        <p>Tra cứu các quyết định đã xác nhận, người xử lý và lý do. Nhật ký chỉ để xem lại.</p>
+                    </div>
+                    <button class="button button-outline" id="openAI">Mở AI hỗ trợ</button>
+                </section>
+
+                <section class="panel filter-panel">
+                    <h2>Bộ lọc nhật ký</h2>
+
+                    <form id="filterForm">
+                        <div class="filter-grid">
+                            <label>
+                                <span>Thời gian từ</span>
+                                <input type="date" id="startDate" value="2026-09-24">
+                            </label>
+
+                            <label>
+                                <span>Đến ngày</span>
+                                <input type="date" id="endDate" value="2026-10-01">
+                            </label>
+
+                            <label>
+                                <span>Loại xử lý</span>
+                                <select id="actionFilter">
+                                    <option value="">Tất cả</option>
+                                    <option value="Duyệt tin">Duyệt tin</option>
+                                    <option value="Bác báo cáo">Bác báo cáo</option>
+                                    <option value="Yêu cầu bổ sung">Yêu cầu bổ sung</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                <span>Người xử lý</span>
+                                <select id="personFilter">
+                                    <option value="">Tất cả</option>
+                                    <option value="Nguyễn Hà">Nguyễn Hà</option>
+                                    <option value="Trần Minh">Trần Minh</option>
+                                </select>
+                            </label>
+
+                            <label class="search-field">
+                                <span>Mã tin / báo cáo</span>
+                                <input type="text" id="codeFilter" placeholder="HF-1024, RP-018...">
+                            </label>
+                        </div>
+
+                        <div class="filter-actions">
+                            <button type="submit" class="button button-primary">Áp dụng bộ lọc</button>
+                            <button type="button" class="button button-outline" id="clearFilter">Xóa bộ lọc</button>
+                            <button type="button" class="button button-outline" id="exportCSV">Xuất nhật ký</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="panel history-panel">
+                    <h2 id="historyTitle">Lịch sử quyết định</h2>
+                    <p class="section-description" id="historyDescription">
+                        Sắp xếp theo thời gian mới nhất · Nhấn Xem để đọc chi tiết
+                    </p>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Thời gian</th>
+                                    <th>Đối tượng</th>
+                                    <th>Quyết định</th>
+                                    <th>Người xử lý</th>
+                                    <th>Lý do</th>
+                                    <th>Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTable"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination" id="pagination"></div>
+                </section>
+
+                <section class="detail-layout">
+                    <div class="panel detail-panel">
+                        <h2 id="detailTitle">Chi tiết quyết định · HF-1025</h2>
+                        <span class="status-badge" id="detailBadge">Lần xử lý trước · Bản cũ</span>
+
+                        <div class="detail-table">
+                            <div class="detail-row detail-header">
+                                <span>Thông tin</span>
+                                <span>Nội dung</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Thời gian xác nhận</span>
+                                <span id="detailTime">29/09/2026 · 14:15</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Người xử lý</span>
+                                <span id="detailPerson">Nguyễn Hà · Kiểm duyệt viên</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Quyết định</span>
+                                <span id="detailAction">Duyệt tin</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Lý do</span>
+                                <span id="detailReason">Ảnh gốc, địa chỉ, giá và phí đã được đối chiếu.</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Bằng chứng đã kiểm tra</span>
+                                <span id="detailEvidence">Ảnh gốc · giấy ủy quyền · bảng phí bản cũ</span>
+                            </div>
+                        </div>
+
+                        <p class="muted detail-note">
+                            Nhật ký không chỉnh sửa trực tiếp. Quyết định mới phải được thực hiện ở trang Duyệt tin hoặc Xử lý báo cáo.
+                        </p>
+                    </div>
+
+                    <aside class="current-status">
+                        <h2>Trạng thái hiện tại</h2>
+                        <strong>HF-1025 vẫn chờ duyệt</strong>
+                        <p>Bản cập nhật gửi lúc 30/09 · 17:20 đang chờ kiểm duyệt và tạm ngưng hiển thị. Lần duyệt bản cũ không áp dụng cho bản cập nhật.</p>
+                        <p class="muted">RP-021 của HF-1027 vẫn đang xem xét; chưa có quyết định cuối trong nhật ký này.</p>
+                        <button class="button button-outline" id="summaryAI">Mở AI · Tóm tắt nhật ký</button>
+                    </aside>
+                </section>
+
+                <div class="notice">
+                    Mọi quyết định do kiểm duyệt viên xác nhận. AI chỉ giúp tìm và tóm tắt lịch sử, không sửa nhật ký hoặc thay đổi trạng thái tin.
+                </div>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="../../js/nhat_ky_xu_ly.js" defer></script>
+</body>
+</html>
