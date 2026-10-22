@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Quản lý khách hàng</title>
+    <link rel="stylesheet" href="../../css/moigioi_khachhang.css">
+</head>
+<body>
+    <div class="app">
+
+        <!-- Thanh điều hướng trên cùng -->
+        <header class="topbar">
+            <a class="brand" href="index.html">
+                <span class="brand-icon">⌂</span>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a href="dang_tin.html">Tin đăng</a>
+                <a href="khach_hang.html" class="active">Khách hàng</a>
+                <a href="tao_sua_tin.html" data-message="Trang tạo / sửa tin">Tạo / sửa tin</a>
+                <a href="ai.html" data-message="Trang AI hỗ trợ">AI</a>
+            </nav>
+
+            <div class="user-area">
+                <span class="notification">🔔</span>
+                <span class="role">Môi giới</span>
+                <span class="avatar">LA</span>
+            </div>
+        </header>
+
+        <div class="layout">
+
+            <!-- Menu bên trái -->
+            <aside class="sidebar">
+                <p class="sidebar-heading">KHÔNG GIAN LÀM VIỆC</p>
+
+                <nav class="side-nav">
+                    <a href="dang_tin.html">
+                        <span>⌂</span> Tin đăng
+                    </a>
+                    <a href="khach_hang.html" class="active">
+                        <span>♙</span> Khách hàng
+                    </a>
+                    <a href="tao_sua_tin.html" >
+                        <span>▤</span> Tạo / sửa tin
+                    </a>
+                    <a href="ai.html" data-message="Trang AI hỗ trợ">
+                        <span>✧</span> AI
+                    </a>
+                </nav>
+
+                <div class="side-card">
+                    <p class="muted">VAI TRÒ HIỆN TẠI</p>
+                    <strong>Môi giới</strong>
+                    <a href="trang_chu.html" id="logout">Đăng xuất ↗</a>
+                </div>
+
+                <div class="side-card ai-card">
+                    <span class="ai-icon">✧</span>
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
+                </div>
+
+                <a class="help-link" href="#" data-message="Trung tâm trợ giúp">
+                    Trung tâm trợ giúp ↗
+                </a>
+            </aside>
+
+            <!-- Nội dung chính -->
+            <main class="main-content">
+
+                <section class="page-heading">
+                    <div>
+                        <p class="eyebrow">KHÔNG GIAN CỦA LAN ANH</p>
+                        <h1>Quản lý khách hàng</h1>
+                        <p class="description">
+                            Theo dõi nhu cầu, trạng thái chăm sóc và lịch hẹn
+                            của khách hàng tại một nơi.
+                        </p>
+                    </div>
+
+                    <button class="primary-button" id="addCustomerBtn">
+                        <span>＋</span> Thêm khách hàng
+                    </button>
+                </section>
+
+                <!-- Thống kê -->
+                <section class="stats">
+                    <article class="stat-card">
+                        <div class="stat-title">
+                            <span>Khách hàng tiềm năng</span>
+                            <span class="stat-icon">♙</span>
+                        </div>
+                        <strong class="stat-number" id="totalCustomers">18</strong>
+                        <p class="stat-note">5 khách mới trong tuần</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-title">
+                            <span>Lịch xem nhà đã xác nhận</span>
+                            <span class="stat-icon">▦</span>
+                        </div>
+                        <strong class="stat-number">6</strong>
+                        <p class="stat-note">1 lịch với Minh An · 03/10</p>
+                    </article>
+                </section>
+
+                <!-- Danh sách khách hàng -->
+                <section class="customer-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Khách hàng tiềm năng</h2>
+                            <p id="customerSummary">
+                                18 khách · Hiển thị 4 hồ sơ gần đây ·
+                                Bạn quyết định ưu tiên chăm sóc
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="toolbar">
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Tìm theo tên hoặc mã tin..."
+                            aria-label="Tìm khách hàng"
+                        >
+
+                        <select id="statusFilter" aria-label="Lọc trạng thái">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="Đã hẹn xem">Đã hẹn xem</option>
+                            <option value="Đang tư vấn">Đang tư vấn</option>
+                            <option value="Khách mới">Khách mới</option>
+                        </select>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng</th>
+                                    <th>Quan tâm</th>
+                                    <th>Nhu cầu / ngân sách</th>
+                                    <th>Trạng thái</th>
+                                    <th>Phản hồi gần nhất</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="customerTable">
+                                <tr>
+                                    <td><strong>Nguyễn Minh An</strong></td>
+                                    <td>An Nhiên · HF-1024</td>
+                                    <td>2 PN · 12–18 triệu<br>Gần công việc, nuôi mèo</td>
+                                    <td><span class="status">Đã hẹn xem</span></td>
+                                    <td>Lan Anh xác nhận<br>03/10 · 10:00</td>
+                                    <td><button class="edit-button">Sửa</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>Trần Hà Linh</strong></td>
+                                    <td>Riverside · HF-1025</td>
+                                    <td>2 PN · 15–20 triệu<br>Ban công, ven sông</td>
+                                    <td><span class="status">Đang tư vấn</span></td>
+                                    <td>Đã gửi bảng phí<br>01/10 · 09:30</td>
+                                    <td><button class="edit-button">Sửa</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>Lê Hoàng Nam</strong></td>
+                                    <td>Vườn Phố · HF-1026</td>
+                                    <td>2 PN · 10–14 triệu<br>Gần siêu thị</td>
+                                    <td><span class="status">Khách mới</span></td>
+                                    <td>Cần phản hồi<br>01/10 · 08:45</td>
+                                    <td><button class="edit-button">Sửa</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>Phạm Thu Trang</strong></td>
+                                    <td>An Nhiên · HF-1024</td>
+                                    <td>2 PN · 14–17 triệu<br>Không gian xanh</td>
+                                    <td><span class="status">Đang tư vấn</span></td>
+                                    <td>Chờ chọn lịch xem<br>30/09 · 16:20</td>
+                                    <td><button class="edit-button">Sửa</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="empty-message" id="emptyMessage" hidden>
+                            Không tìm thấy khách hàng phù hợp.
+                        </p>
+                    </div>
+                </section>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Hộp thoại thêm / sửa khách hàng -->
+    <dialog id="customerDialog">
+        <form id="customerForm">
+            <div class="dialog-heading">
+                <h2 id="dialogTitle">Thêm khách hàng</h2>
+                <button type="button" class="close-button" id="closeDialog">×</button>
+            </div>
+
+            <label for="customerName">Họ và tên</label>
+            <input id="customerName" name="customerName"
+                   type="text" required placeholder="Nhập họ và tên">
+
+            <label for="propertyName">Tin đăng quan tâm</label>
+            <input id="propertyName" name="propertyName"
+                   type="text" required placeholder="Ví dụ: An Nhiên · HF-1024">
+
+            <label for="customerNeed">Nhu cầu / ngân sách</label>
+            <textarea id="customerNeed" name="customerNeed"
+                      required placeholder="Ví dụ: 2 PN, 12–18 triệu/tháng"></textarea>
+
+            <label for="customerStatus">Trạng thái</label>
+            <select id="customerStatus" name="customerStatus">
+                <option>Khách mới</option>
+                <option>Đang tư vấn</option>
+                <option>Đã hẹn xem</option>
+            </select>
+
+            <label for="customerResponse">Phản hồi gần nhất</label>
+            <input id="customerResponse" name="customerResponse"
+                   type="text" placeholder="Ví dụ: Cần gọi lại khách">
+
+            <div class="dialog-actions">
+                <button type="button" class="secondary-button" id="cancelDialog">
+                    Hủy
+                </button>
+                <button type="submit" class="primary-button">Lưu khách hàng</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../../js/moigioi_khachhang.js"></script>
+</body>
+</html>

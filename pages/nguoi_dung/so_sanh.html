@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So sánh nhà - HomeFit AI</title>
+    <link rel="stylesheet" href="../../css/so_sanh.css">
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <a href="../../index.html" class="brand">
+                <span class="brand-icon">⌂</span>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a href="../nguoi_dung/tim_kiem.html">Tìm nhà</a>
+                <a href="../nguoi_dung/nha_da_luu.html">Nhà đã lưu</a>
+                <a href="../nguoi_dung/so_sanh.html" class="active">So sánh</a>
+                <a href="../ai.html">AI</a>
+            </nav>
+
+            <div class="user-area">
+                <span class="role-tag">Người tìm nhà</span>
+                <span class="avatar">MA</span>
+                <a href="#">Tài khoản</a>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <h3>KHÔNG GIAN LÀM VIỆC</h3>
+
+                <nav class="side-nav">
+                    <a href="../nguoi_dung/tim_kiem.html">Tìm nhà</a>
+                    <a href="../nguoi_dung/nha_da_luu.html">Nhà đã lưu</a>
+                    <a href="../nguoi_dung/so_sanh.html" class="active">So sánh</a>
+                    <a href="../ai.html">AI</a>
+                </nav>
+
+                <div class="account-box">
+                    <p class="muted">ĐÃ ĐĂNG NHẬP</p>
+                    <strong>Minh An</strong>
+                    <p class="muted">Người tìm nhà</p>
+                    <a href="../Login/trang_chu.html">Đăng xuất ↗</a>
+                </div>
+
+                <div class="ai-note">
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
+                </div>
+
+                <a href="../ai.html" class="help-link">Trung tâm trợ giúp ↗</a>
+            </aside>
+
+            <main class="main-content">
+                <section class="page-heading">
+                    <div>
+                        <p class="eyebrow">NGƯỜI TÌM NHÀ · MINH AN</p>
+                        <h1>So sánh 3 căn nhà</h1>
+                        <p class="description">
+                            Minh An · 2 phòng ngủ · 12–18 triệu/tháng ·
+                            gần công việc, công viên và nuôi mèo.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-outline" id="openAI">
+                        Mở AI hỗ trợ
+                    </button>
+                </section>
+
+                <section class="house-list" id="houseList">
+                    <article class="house-card" data-house="annhien">
+                        <div class="house-image image-one" role="img"
+                             aria-label="Hình minh họa căn hộ An Nhiên">
+                            <span>CĂN HỘ AN NHIÊN</span>
+                        </div>
+                        <h2>An Nhiên · HF-1024</h2>
+                        <div class="house-meta">
+                            <span class="match">94% phù hợp</span>
+                            <button class="btn btn-outline remove-house">
+                                Bỏ khỏi so sánh
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="house-card" data-house="riverside">
+                        <div class="house-image image-two" role="img"
+                             aria-label="Hình minh họa căn hộ Riverside">
+                            <span>RIVERSIDE</span>
+                        </div>
+                        <h2>Riverside · HF-1025</h2>
+                        <div class="house-meta">
+                            <span class="match">89% phù hợp</span>
+                            <button class="btn btn-outline remove-house">
+                                Bỏ khỏi so sánh
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="house-card" data-house="vuonpho">
+                        <div class="house-image image-three" role="img"
+                             aria-label="Hình minh họa căn hộ Vườn Phố">
+                            <span>VƯỜN PHỐ</span>
+                        </div>
+                        <h2>Vườn Phố · HF-1026</h2>
+                        <div class="house-meta">
+                            <span class="match">86% phù hợp</span>
+                            <button class="btn btn-outline remove-house">
+                                Bỏ khỏi so sánh
+                            </button>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="comparison-section">
+                    <h2>Bảng so sánh chi tiết</h2>
+
+                    <div class="table-wrapper">
+                        <table id="comparisonTable">
+                            <thead>
+                                <tr>
+                                    <th>Tiêu chí</th>
+                                    <th data-column="annhien">An Nhiên HF-1024</th>
+                                    <th data-column="riverside">Riverside HF-1025</th>
+                                    <th data-column="vuonpho">Vườn Phố HF-1026</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Giá thuê / tháng</td>
+                                    <td data-column="annhien">15 triệu đồng</td>
+                                    <td data-column="riverside">16,5 triệu đồng</td>
+                                    <td data-column="vuonpho">13 triệu đồng</td>
+                                </tr>
+                                <tr>
+                                    <td>Diện tích · phòng ngủ</td>
+                                    <td data-column="annhien">72 m² · 2 PN</td>
+                                    <td data-column="riverside">76 m² · 2 PN</td>
+                                    <td data-column="vuonpho">68 m² · 2 PN</td>
+                                </tr>
+                                <tr>
+                                    <td>Độ phù hợp AI</td>
+                                    <td data-column="annhien">94%</td>
+                                    <td data-column="riverside">89%</td>
+                                    <td data-column="vuonpho">86%</td>
+                                </tr>
+                                <tr>
+                                    <td>Phí quản lý / tháng</td>
+                                    <td data-column="annhien">0,8 triệu đồng</td>
+                                    <td data-column="riverside">0,9 triệu đồng</td>
+                                    <td data-column="vuonpho">0,6 triệu đồng</td>
+                                </tr>
+                                <tr>
+                                    <td>Tổng thuê + quản lý</td>
+                                    <td data-column="annhien">15,8 triệu/tháng</td>
+                                    <td data-column="riverside">17,4 triệu/tháng</td>
+                                    <td data-column="vuonpho">13,6 triệu/tháng</td>
+                                </tr>
+                                <tr>
+                                    <td>Thời gian đi làm</td>
+                                    <td data-column="annhien">12 phút</td>
+                                    <td data-column="riverside">22 phút</td>
+                                    <td data-column="vuonpho">18 phút</td>
+                                </tr>
+                                <tr>
+                                    <td>Không gian xanh</td>
+                                    <td data-column="annhien">Có công viên</td>
+                                    <td data-column="riverside">Ban công xanh</td>
+                                    <td data-column="vuonpho">Cần xác nhận công viên</td>
+                                </tr>
+                                <tr>
+                                    <td>Quy định nuôi mèo</td>
+                                    <td data-column="annhien">Cho nuôi · cần xác nhận</td>
+                                    <td data-column="riverside">Cho nuôi · cần xác nhận</td>
+                                    <td data-column="vuonpho">Chưa xác nhận</td>
+                                </tr>
+                                <tr>
+                                    <td>Trạng thái tin hiện tại</td>
+                                    <td data-column="annhien">Đang hiển thị</td>
+                                    <td data-column="riverside">Bản cập nhật chờ duyệt</td>
+                                    <td data-column="vuonpho">Đang hiển thị</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="table-note">
+                        Chi phí chưa gồm điện, nước và gửi xe. Thời gian đi làm
+                        và độ phù hợp là ước tính; HF-1025 chưa thể đặt lịch khi
+                        bản cập nhật còn chờ duyệt.
+                    </p>
+                </section>
+
+                <section class="recommendations">
+                    <article class="recommend-card">
+                        <h2>An Nhiên</h2>
+                        <p>
+                            <strong>Ưu điểm:</strong> đi làm gần nhất, có công
+                            viên, đáp ứng nhu cầu nuôi mèo.
+                        </p>
+                        <p class="muted">
+                            Cân nhắc: thêm 0,8 triệu phí quản lý mỗi tháng.
+                        </p>
+                        <button class="btn btn-primary select-house"
+                                data-name="An Nhiên">
+                            Chọn An Nhiên
+                        </button>
+                    </article>
+
+                    <article class="recommend-card">
+                        <h2>Riverside</h2>
+                        <p>
+                            <strong>Ưu điểm:</strong> diện tích lớn nhất,
+                            có ban công xanh.
+                        </p>
+                        <p class="muted">
+                            Cân nhắc: đi làm 22 phút, tổng phí cao nhất;
+                            bản cập nhật chờ duyệt.
+                        </p>
+                        <button class="btn btn-outline save-house"
+                                data-name="Riverside">
+                            Lưu để xem sau
+                        </button>
+                    </article>
+
+                    <article class="recommend-card">
+                        <h2>Vườn Phố</h2>
+                        <p>
+                            <strong>Ưu điểm:</strong> tổng chi phí thấp nhất,
+                            gần siêu thị.
+                        </p>
+                        <p class="muted">
+                            Cân nhắc: diện tích nhỏ hơn, cần xác nhận
+                            quy định thú cưng.
+                        </p>
+                        <button class="btn btn-outline select-house"
+                                data-name="Vườn Phố">
+                            Chọn Vườn Phố
+                        </button>
+                    </article>
+                </section>
+
+                <section class="ai-explanation" id="aiExplanation">
+                    <h2>AI giải thích lựa chọn</h2>
+                    <p>
+                        An Nhiên cân bằng tốt nhất giữa ngân sách và ba ưu tiên
+                        của Minh An. Nếu ưu tiên tiết kiệm, có thể xem Vườn Phố
+                        sau khi xác nhận việc nuôi mèo. Bạn là người quyết định.
+                    </p>
+
+                    <div class="action-list">
+                        <button class="btn btn-primary" id="explainComparison">
+                            Đến AI · Giải thích so sánh
+                        </button>
+                        <button class="btn btn-outline" id="saveComparison">
+                            Lưu bảng so sánh
+                        </button>
+                        <button class="btn btn-outline" id="continueSearch">
+                            Tiếp tục tìm nhà
+                        </button>
+                    </div>
+                    <p id="message" class="message" aria-live="polite"></p>
+                </section>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+    <script src="../../js/so_sanh.js" defer></script>
+</body>
+</html>
