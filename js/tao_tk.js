@@ -1,6 +1,4 @@
-
 const form = document.getElementById("registerForm");
-
 const fullname = document.getElementById("fullname");
 const phone = document.getElementById("phone");
 const email = document.getElementById("email");
@@ -114,9 +112,17 @@ form.addEventListener("submit", function (event) {
         return;
     }
 
-    const selectedRole = document.querySelector(
+    const selectedRoleInput = document.querySelector(
         'input[name="role"]:checked'
-    ).value;
+    );
+
+    if (!selectedRoleInput) {
+        formMessage.textContent = "Vui lòng chọn vai trò tài khoản.";
+        formMessage.className = "failure";
+        return;
+    }
+
+    const selectedRole = selectedRoleInput.value;
 
     const selectedNeeds = Array.from(
         document.querySelectorAll('input[name="needs"]:checked')
@@ -124,15 +130,59 @@ form.addEventListener("submit", function (event) {
         return item.value;
     });
 
-    formMessage.textContent =
-        "Kiểm tra thông tin thành công! Đây là bản minh họa, tài khoản chưa được lưu.";
-    formMessage.className = "success";
+    let danhSachTaiKhoan = [];
 
-    console.log("Họ và tên:", fullnameValue);
-    console.log("Số điện thoại:", normalizedPhone);
-    console.log("Email:", emailValue);
-    console.log("Vai trò:", selectedRole);
-    console.log("Nhu cầu sống:", selectedNeeds);
+    try {
+        danhSachTaiKhoan = JSON.parse(
+            localStorage.getItem("danhSachTaiKhoan")
+        ) || [];
+
+        if (!Array.isArray(danhSachTaiKhoan)) {
+            danhSachTaiKhoan = [];
+        }
+    } catch (error) {
+        danhSachTaiKhoan = [];
+    }
+
+    const daTonTai = danhSachTaiKhoan.some(function (item) {
+        return item.email.toLowerCase() === emailValue.toLowerCase();
+    });
+
+    if (daTonTai) {
+        emailError.textContent = "Email này đã được đăng ký.";
+        formMessage.textContent = "Vui lòng sử dụng email khác.";
+        formMessage.className = "failure";
+        return;
+    }
+
+    const taiKhoan = {
+        fullname: fullnameValue,
+        phone: normalizedPhone,
+        email: emailValue,
+        password: passwordValue,
+        vaiTro: selectedRole,
+        nhuCau: selectedNeeds
+    };
+
+    danhSachTaiKhoan.push(taiKhoan);
+
+    try {
+        localStorage.setItem(
+            "danhSachTaiKhoan",
+            JSON.stringify(danhSachTaiKhoan)
+        );
+
+        formMessage.textContent =
+            "Tạo tài khoản thành công! Vui lòng đăng nhập.";
+        formMessage.className = "success";
+
+        form.reset();
+        updateRoleStyle();
+    } catch (error) {
+        formMessage.textContent =
+            "Không thể lưu tài khoản. Vui lòng thử lại.";
+        formMessage.className = "failure";
+    }
 });
 
 updateRoleStyle();
