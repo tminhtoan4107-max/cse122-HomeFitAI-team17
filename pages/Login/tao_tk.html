@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - HomeFit AI</title>
+    <link rel="stylesheet" href="../../css/tao_tk.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">
+            <div class="logo-icon">⌂</div>
+            <span>HomeFit AI</span>
+        </a>
+
+        <nav class="nav">
+            <a href="../index.html">Tìm nhà</a>
+            <a href="../Login/tai_khoan.html">Tài khoản</a>
+            <a href="../ai.html">AI</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="../Login/dang_nhap.html" class="btn btn-outline">Đăng nhập</a>
+            <a href="../Login/tao_tk.html" class="btn btn-primary">Tạo tài khoản</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="intro">
+            <span class="tag">HOMEFIT AI</span>
+
+            <h1>Tạo tài khoản để bắt đầu</h1>
+
+            <p>
+                Tạo tài khoản để tìm, lưu và so sánh nhà phù hợp với nhu cầu sống.
+            </p>
+
+            <img
+                class="intro-image"
+                src="../../assets/images/Nha_o.png"
+                alt="Không gian nhà ở HomeFit AI"
+            >
+
+            <p class="intro-note">
+                Sau khi đăng nhập, các chức năng sẽ hiển thị theo vai trò tài khoản.
+            </p>
+        </section>
+
+        <section class="register">
+            <div class="register-heading">
+                <span class="eyebrow">ĐĂNG KÝ</span>
+                <h2>Tạo tài khoản</h2>
+                <p>
+                    Đăng ký nhanh với thông tin cơ bản và chọn vai trò phù hợp.
+                </p>
+            </div>
+
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên</label>
+                        <input
+                            type="text"
+                            id="fullname"
+                            name="fullname"
+                            placeholder="Nguyễn Minh An"
+                            autocomplete="name"
+                            required
+                        >
+                        <small class="error" id="fullnameError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="0901234567"
+                            autocomplete="tel"
+                            required
+                        >
+                        <small class="error" id="phoneError"></small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="minhan@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                    <small class="error" id="emailError"></small>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Mật khẩu</label>
+
+                        <div class="password-box">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Nhập mật khẩu"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="password"
+                                aria-label="Hiện mật khẩu"
+                            >◉</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Xác nhận mật khẩu</label>
+
+                        <div class="password-box">
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Nhập lại mật khẩu"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                data-target="confirmPassword"
+                                aria-label="Hiện xác nhận mật khẩu"
+                            >◉</button>
+                        </div>
+                    </div>
+                </div>
+
+                <small class="hint">
+                    Mật khẩu tối thiểu 8 ký tự, gồm chữ và số.
+                </small>
+
+                <small class="error" id="passwordError"></small>
+
+                <div class="form-group role-group">
+                    <label>Bạn sử dụng HomeFit AI để làm gì?</label>
+
+                    <div class="role-options">
+                        <label class="role-option selected">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Người tìm nhà"
+                                checked
+                            >
+                            <span>Người tìm nhà</span>
+                        </label>
+
+                        <label class="role-option">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Môi giới"
+                            >
+                            <span>Môi giới</span>
+                        </label>
+                    </div>
+
+                    <small class="hint">
+                        Quyền Môi giới cần được xác minh. Kiểm duyệt và
+                        Quản trị viên chỉ được cấp quyền bởi quản trị hệ thống.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label>Nhu cầu sống của bạn</label>
+
+                    <div class="needs">
+                        <label class="need-tag">
+                            <input
+                                type="checkbox"
+                                name="needs"
+                                value="Thuê căn hộ"
+                            >
+                            <span>Thuê căn hộ</span>
+                        </label>
+
+                        <label class="need-tag">
+                            <input
+                                type="checkbox"
+                                name="needs"
+                                value="Gần nơi làm việc"
+                            >
+                            <span>Gần nơi làm việc</span>
+                        </label>
+
+                        <label class="need-tag">
+                            <input
+                                type="checkbox"
+                                name="needs"
+                                value="Không gian xanh"
+                            >
+                            <span>Không gian xanh</span>
+                        </label>
+                    </div>
+
+                    <small class="hint">
+                        Bạn có thể điều chỉnh nhu cầu bất cứ lúc nào.
+                    </small>
+                </div>
+
+                <div class="terms">
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        Tôi đồng ý với Điều khoản sử dụng và Chính sách bảo mật
+                        của HomeFit AI.
+                    </label>
+                </div>
+
+                <small class="error" id="termsError"></small>
+
+                <div id="formMessage" role="status" aria-live="polite"></div>
+
+                <button type="submit" class="btn btn-primary submit-btn">
+                    Tạo tài khoản
+                </button>
+
+                <div class="login-link">
+                    <span>Đã có tài khoản?</span>
+                    <a href="../Login/dang_nhap.html">Đăng nhập</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+    </footer>
+    <script src="../../js/tao_tk.js" defer></script>
+</body>
+</html>
