@@ -1,0 +1,671 @@
+
+/* =========================
+   1. CÀI ĐẶT CHUNG
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #2563EB;
+    --blue-light: #EFF6FF;
+    --text: #1F2937;
+    --muted: #6B7280;
+    --border: #D1D5DB;
+    --page-bg: #F2F7FF;
+}
+
+body {
+    margin: 0;
+    padding: 32px;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   2. KHUNG CHÍNH
+========================= */
+.app-shell {
+    max-width: 1440px;
+    min-height: 1060px;
+    margin: 0 auto;
+    background: white;
+}
+
+.topbar {
+    min-height: 80px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* =========================
+   3. LOGO VÀ THANH MENU TRÊN
+========================= */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    color: white;
+    background: var(--blue);
+    border-radius: 4px;
+    font-size: 25px;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.top-nav a {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.top-nav a.active {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+.notification {
+    color: var(--blue);
+    font-size: 21px;
+}
+
+.role-badge,
+.status {
+    display: inline-flex;
+    padding: 4px 9px;
+    color: var(--blue);
+    background: var(--blue-light);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    color: var(--blue);
+    background: var(--blue-light);
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* =========================
+   4. BỐ CỤC MENU BÊN TRÁI
+========================= */
+.workspace {
+    display: flex;
+    min-height: 980px;
+}
+
+.sidebar {
+    width: 228px;
+    flex: 0 0 228px;
+    padding: 30px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    border-right: 1px solid var(--border);
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 10px;
+    color: var(--muted);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.side-nav a span {
+    width: 17px;
+    color: var(--blue);
+    font-size: 17px;
+    text-align: center;
+}
+
+.side-nav a.selected {
+    color: var(--blue);
+    background: var(--blue-light);
+    font-weight: 600;
+}
+
+/* =========================
+   5. THÔNG TIN BÊN TRÁI
+========================= */
+.side-info {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 4px;
+}
+
+.side-info strong {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.side-info a {
+    color: var(--blue);
+    font-size: 12px;
+}
+
+.side-info p:not(.eyebrow) {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.sparkle {
+    color: var(--blue);
+    font-size: 20px;
+}
+
+.ai-note {
+    gap: 10px;
+}
+
+.help-link {
+    margin-top: auto;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* =========================
+   6. NỘI DUNG CHÍNH
+========================= */
+.main-content {
+    min-width: 0;
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.page-heading h1 {
+    margin: 5px 0;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.subheading {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================
+   7. CÁC NÚT BẤM
+========================= */
+.primary-button,
+.secondary-button {
+    min-height: 42px;
+    padding: 0 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.primary-button {
+    color: white;
+    background: var(--blue);
+}
+
+.primary-button:hover {
+    background: #1D4ED8;
+}
+
+.secondary-button {
+    color: var(--blue);
+    background: white;
+    border-color: var(--border);
+}
+
+.secondary-button:hover {
+    background: #F9FAFB;
+}
+
+/* =========================
+   8. CÁC THẺ THỐNG KÊ
+========================= */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.stat-card,
+.panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.stat-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.stat-icon {
+    color: var(--blue);
+    font-size: 18px;
+}
+
+.stat-number {
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.stat-foot {
+    margin: 0;
+    color: var(--blue);
+    font-size: 11px;
+}
+
+/* =========================
+   9. BẢNG TIN ĐĂNG VÀ KHUNG AI
+========================= */
+.content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 344px;
+    align-items: start;
+    gap: 18px;
+}
+
+.panel {
+    min-width: 0;
+    padding: 22px;
+}
+
+.panel h2,
+.ai-panel h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 12px;
+}
+
+.listings-panel > .small {
+    margin: 8px 0 16px;
+}
+
+/* =========================
+   10. BẢNG DANH SÁCH TIN
+========================= */
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 12px;
+}
+
+th {
+    padding: 12px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+td strong,
+.subcell {
+    display: block;
+    line-height: 1.5;
+}
+
+td strong {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.subcell {
+    color: var(--muted);
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.text-button {
+    padding: 0;
+    color: var(--text);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.text-button:hover {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.table-note {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   11. KHUNG AI HỖ TRỢ
+========================= */
+.ai-panel {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--blue-light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.ai-panel h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.ai-panel h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ai-panel p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.ai-panel .draft {
+    color: var(--muted);
+}
+
+.ai-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.fine-print {
+    color: var(--muted);
+    font-size: 11px !important;
+}
+
+/* =========================
+   12. CHÂN TRANG
+========================= */
+.footer {
+    margin-top: auto;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   13. HỘP THÔNG BÁO
+========================= */
+dialog {
+    width: min(420px, calc(100% - 32px));
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 18px 50px rgb(0 0 0 / 20%);
+}
+
+dialog::backdrop {
+    background: rgb(31 41 55 / 35%);
+}
+
+.dialog-content {
+    padding: 24px;
+}
+
+.dialog-content h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.dialog-content p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* =========================
+   14. RESPONSIVE - MÀN HÌNH VỪA
+========================= */
+@media (max-width: 1100px) {
+    body {
+        padding: 16px;
+    }
+
+    .topbar {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+    }
+
+    .top-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .sidebar {
+        width: 190px;
+        flex-basis: 190px;
+    }
+
+    .main-content {
+        padding: 24px;
+    }
+
+    .content-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ai-panel {
+        width: 100%;
+    }
+}
+
+/* =========================
+   15. RESPONSIVE - ĐIỆN THOẠI
+========================= */
+@media (max-width: 700px) {
+    body {
+        padding: 0;
+    }
+
+    .app-shell {
+        min-height: 100vh;
+    }
+
+    .topbar {
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .brand {
+        font-size: 19px;
+    }
+
+    .account {
+        gap: 8px;
+    }
+
+    .top-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+    }
+
+    .top-nav a {
+        white-space: nowrap;
+    }
+
+    .workspace {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: 0;
+        padding: 16px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        gap: 12px;
+    }
+
+    .side-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .side-info,
+    .help-link {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px 16px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-heading h1 {
+        font-size: 26px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel,
+    .ai-panel {
+        padding: 16px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+}

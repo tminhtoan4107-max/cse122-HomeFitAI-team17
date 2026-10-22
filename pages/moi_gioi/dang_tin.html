@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Quản lý tin đăng</title>
+    <link rel="stylesheet" href="../../css/moigioi_tindang.css">
+    
+    
+</head>
+<body>
+    <div class="app-shell">
+
+        <!-- Thanh điều hướng trên cùng -->
+        <header class="topbar">
+            <a class="brand" href="#">
+                <span class="brand-icon">⌂</span>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a class="active" href="#listings">Tin đăng</a>
+                <a href="khach_hang.html">Khách hàng</a>
+                <a href="tao_sua_tin.html">Tạo / sửa tin</a>
+                <a href="ai.html">AI</a>
+            </nav>
+
+            <div class="account">
+                <span class="notification">🔔</span>
+                <span class="role-badge">Môi giới</span>
+                <span class="avatar">LA</span>
+            </div>
+        </header>
+
+        <div class="workspace">
+
+            <!-- Thanh menu bên trái -->
+            <aside class="sidebar">
+                <p class="eyebrow">KHÔNG GIAN LÀM VIỆC</p>
+
+                <nav class="side-nav">
+                    <a class="selected" href="dang_tin.html">
+                        <span>▦</span> Tin đăng
+                    </a>
+                    <a href="khach_hang.html">
+                        <span>♙</span> Khách hàng
+                    </a>
+                    <a href="tao_sua_tin.html">
+                        <span>＋</span> Tạo / sửa tin
+                    </a>
+                    <a href="ai.html">
+                        <span>✧</span> AI
+                    </a>
+                </nav>
+
+                <section class="side-info">
+                    <p class="eyebrow">VAI TRÒ HIỆN TẠI</p>
+                    <strong>Môi giới</strong>
+                    <a href="trang_chu.html">Đăng xuất ↗</a>
+                </section>
+
+                <section class="side-info ai-note">
+                    <span class="sparkle">✧</span>
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>
+                        Mọi gợi ý đều có thể xem lại,
+                        chỉnh sửa hoặc từ chối.
+                    </p>
+                </section>
+
+                <a class="help-link" href="#help">
+                    Trung tâm trợ giúp ↗
+                </a>
+            </aside>
+
+            <!-- Nội dung chính -->
+            <main class="main-content">
+
+                <section class="page-heading">
+                    <div>
+                        <p class="eyebrow blue">
+                            KHÔNG GIAN CỦA LAN ANH
+                        </p>
+                        <h1>Quản lý tin đăng</h1>
+                        <p class="subheading">
+                            Theo dõi chất lượng tin đăng, trạng thái
+                            duyệt và lịch cập nhật tại một nơi.
+                        </p>
+                    </div>
+
+                    <button class="primary-button" id="createListingBtn">
+                        ＋ Tạo tin đăng
+                    </button>
+                </section>
+
+                <!-- Các thẻ thống kê -->
+                <section class="stats-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Tin đăng đang hiển thị</span>
+                            <span class="stat-icon">▣</span>
+                        </div>
+                        <strong class="stat-number">8</strong>
+                        <p class="stat-foot">
+                            12 tin đăng tổng cộng
+                        </p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Đang chờ kiểm duyệt</span>
+                            <span class="stat-icon">◷</span>
+                        </div>
+                        <strong class="stat-number">3</strong>
+                        <p class="stat-foot">
+                            1 tin cần bổ sung thông tin
+                        </p>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">
+                            <span>Lịch xem nhà đã xác nhận</span>
+                            <span class="stat-icon">▤</span>
+                        </div>
+                        <strong class="stat-number">6</strong>
+                        <p class="stat-foot">
+                            1 lịch với Minh An · 03/10
+                        </p>
+                    </article>
+
+                </section>
+
+                <!-- Danh sách tin đăng và trợ lý AI -->
+                <section class="content-grid">
+
+                    <article class="panel listings-panel" id="listings">
+                        <h2>Tin đăng của bạn</h2>
+
+                        <p class="muted small">
+                            4 / 12 tin · Cập nhật minh họa ngày 01/10/2026
+                        </p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Tin đăng</th>
+                                        <th>Giá thuê / tháng</th>
+                                        <th>Trạng thái</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong>An Nhiên</strong>
+                                            <span class="subcell">
+                                                HF-1024 · Thảo Điền
+                                            </span>
+                                        </td>
+                                        <td>15 triệu</td>
+                                        <td>
+                                            <span class="status">
+                                                Đang hiển thị
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="text-button detail-btn"
+                                                data-listing="An Nhiên">
+                                                Xem chi tiết ↗
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Riverside Bình Thạnh</strong>
+                                            <span class="subcell">
+                                                HF-1025 · Phường 22
+                                            </span>
+                                        </td>
+                                        <td>16,5 triệu</td>
+                                        <td>
+                                            <span class="status">
+                                                Chờ duyệt
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="text-button detail-btn"
+                                                data-listing="Riverside Bình Thạnh">
+                                                Theo dõi ↗
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Vườn Phố</strong>
+                                            <span class="subcell">
+                                                HF-1026 · An Phú
+                                            </span>
+                                        </td>
+                                        <td>13 triệu</td>
+                                        <td>
+                                            <span class="status">
+                                                Đang hiển thị
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="text-button edit-btn"
+                                                data-listing="Vườn Phố">
+                                                Chỉnh sửa ↗
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <strong>Studio An Phú</strong>
+                                            <span class="subcell">
+                                                HF-1027 · An Phú
+                                            </span>
+                                        </td>
+                                        <td>9 triệu</td>
+                                        <td>
+                                            <span class="status">
+                                                Cần bổ sung
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button class="text-button edit-btn"
+                                                data-listing="Studio An Phú">
+                                                Bổ sung ↗
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="table-note">
+                            HF-1025 tạm ngưng hiển thị để duyệt lại bản cập nhật.
+                            HF-1027 cần ảnh gốc và giấy ủy quyền.
+                        </p>
+                    </article>
+
+                    <!-- Khung AI -->
+                    <aside class="ai-panel" id="ai-assistant">
+                        <h2>
+                            <span class="sparkle">✧</span>
+                            AI hỗ trợ môi giới
+                        </h2>
+
+                        <span class="status">Gợi ý · Chưa gửi</span>
+
+                        <h3>Ưu tiên phản hồi Minh An</h3>
+
+                        <p>
+                            Nhu cầu thuê 12–18 triệu, gần công việc
+                            và cho nuôi mèo khớp với An Nhiên.
+                            Lịch xem nhà đã được xác nhận.
+                        </p>
+
+                        <p class="draft" id="draftText">
+                            Bản nháp: “Chào An, hẹn bạn 10:00 ngày
+                            03/10 tại sảnh An Nhiên. Mình sẽ xác nhận
+                            lại quy định thú cưng.”
+                        </p>
+
+                        <div class="ai-actions">
+                            <button class="secondary-button" id="editDraftBtn">
+                                Sửa bản nháp
+                            </button>
+
+                            <button class="primary-button" id="approveDraftBtn">
+                                Duyệt &amp; gửi
+                            </button>
+                        </div>
+
+                        <p class="fine-print">
+                            AI không tự động gửi tin nhắn cho khách.
+                        </p>
+                    </aside>
+
+                </section>
+
+                <footer class="footer">
+                    <span>
+                        HomeFit AI · Khám phá nhà ở theo nhu cầu sống
+                    </span>
+                    <span>
+                        © 2026 HomeFit AI. Bản quyền thuộc về nhóm 17.
+                    </span>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Hộp thông báo -->
+    <dialog id="messageDialog">
+        <div class="dialog-content">
+            <h2 id="dialogTitle">Thông báo</h2>
+            <p id="dialogMessage"></p>
+            <button class="primary-button" id="closeDialogBtn">
+                Đóng
+            </button>
+        </div>
+    </dialog>
+    <script src="../../js/moigioi_tindang.js" defer></script>
+
+</body>
+</html>
