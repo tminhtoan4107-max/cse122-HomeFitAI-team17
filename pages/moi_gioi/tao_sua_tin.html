@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Tạo và sửa tin đăng</title>
+
+    <link rel="stylesheet" href="../../css/moigioi_tao_sua_tin.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="app-container">
+
+        <!-- ================= HEADER ================= -->
+        <header class="header">
+
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <span>⌂</span>
+                </div>
+
+                <div class="logo-text">
+                    HomeFit AI
+                </div>
+            </div>
+
+            <nav class="top-nav">
+                <a href="../moi_gioi/dang_tin.html">Tin đăng</a>
+                <a href="../moi_gioi/khach_hang.html">Khách hàng</a>
+                <a href="../moi_gioi/tao_sua_tin.html" class="active">Tạo / sửa tin</a>
+                <a href="../ai.html">AI</a>
+            </nav>
+
+            <div class="account-area">
+
+                <div class="role-badge">
+                    Môi giới
+                </div>
+
+                <div class="avatar">
+                    LA
+                </div>
+
+                <a href="../tai_khoan/tai_khoan.html" class="account-link">
+                    Tài khoản
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN ================= -->
+        <div class="main-layout">
+
+            <!-- ================= SIDEBAR ================= -->
+            <aside class="sidebar">
+
+                <div class="sidebar-title">
+                    KHÔNG GIAN LÀM VIỆC
+                </div>
+
+                <nav class="sidebar-menu">
+
+                    <a href="../moi_gioi/dang_tin.html">
+                        Tin đăng
+                    </a>
+
+                    <a href="../moi_gioi/khach_hang.html">
+                        Khách hàng
+                    </a>
+
+                    <a href="../moi_gioi/tao_sua_tin.html" class="selected">
+                        Tạo / sửa tin
+                    </a>
+
+                    <a href="../ai.html">
+                        AI
+                    </a>
+
+                </nav>
+
+
+                <!-- USER -->
+                <div class="logged-user">
+
+                    <div class="small-title">
+                        ĐÃ ĐĂNG NHẬP
+                    </div>
+
+                    <div class="user-name">
+                        Lan Anh
+                    </div>
+
+                    <div class="user-role">
+                        Môi giới
+                    </div>
+
+                    <a href="../Login/trang_chu.html" class="logout">
+                        Đăng xuất ↗
+                    </a>
+
+                </div>
+
+
+                <!-- AI NOTE -->
+                <div class="ai-note">
+
+                    <div class="ai-note-title">
+                        AI hỗ trợ. Bạn quyết định.
+                    </div>
+
+                    <div class="ai-note-text">
+                        Mọi gợi ý đều có thể xem lại,
+                        chỉnh sửa hoặc từ chối.
+                    </div>
+
+                </div>
+
+
+                <div class="help-link">
+                    Trung tâm trợ giúp ↗
+                </div>
+
+            </aside>
+
+
+            <!-- ================= CONTENT ================= -->
+            <main class="content">
+
+                <!-- PAGE TITLE -->
+                <section class="page-heading">
+
+                    <div>
+
+                        <div class="agent-label">
+                            MÔI GIỚI · LAN ANH
+                        </div>
+
+                        <h1>
+                            Tạo và sửa tin đăng
+                        </h1>
+
+                        <p>
+                            Lan Anh · Bổ sung Studio An Phú HF-1027
+                            trước khi gửi lại kiểm duyệt.
+                        </p>
+
+                    </div>
+
+                    <button class="outline-btn" id="openAI">
+                        Mở AI hỗ trợ
+                    </button>
+
+                </section>
+
+
+                <!-- WARNING -->
+                <section class="warning-box">
+
+                    <div class="status-badge">
+                        HF-1027 · Cần bổ sung
+                    </div>
+
+                    <h3>
+                        Cần bổ sung ảnh gốc và giấy ủy quyền
+                    </h3>
+
+                    <p>
+                        RP-021 đang được xem xét. Tin chưa được
+                        hiển thị lại; lưu nháp không thay đổi
+                        trạng thái kiểm duyệt.
+                    </p>
+
+                </section>
+
+
+                <!-- ================= FORM + CHECK ================= -->
+                <div class="content-grid">
+
+                    <!-- LEFT -->
+                    <div class="form-column">
+
+
+                        <!-- THÔNG TIN NHÀ -->
+                        <section class="card">
+
+                            <h2>
+                                Thông tin nhà
+                            </h2>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Tiêu đề tin *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="Studio An Phú · Không gian gọn gàng, đầy đủ nội thất"
+                                >
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Loại nhà *
+                                    </label>
+
+                                    <select>
+                                        <option>Studio</option>
+                                        <option>Căn hộ</option>
+                                        <option>Nhà nguyên căn</option>
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Giao dịch *
+                                    </label>
+
+                                    <select>
+                                        <option>Cho thuê</option>
+                                        <option>Mua bán</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row three-columns">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Diện tích *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="38 m²"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Phòng ngủ
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="Không gian studio"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Phòng tắm
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="1"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Địa chỉ *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value="An Phú, Thủ Đức, TP. Hồ Chí Minh"
+                                >
+
+                            </div>
+
+
+                            <p class="form-note">
+                                Địa chỉ chi tiết sẽ được kiểm tra với
+                                giấy tờ trước khi tin được duyệt.
+                            </p>
+
+                        </section>
+
+
+                        <!-- GIÁ -->
+                        <section class="card">
+
+                            <h2>
+                                Giá thuê, phí và tiện ích
+                            </h2>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Giá thuê / tháng *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="9.000.000 đồng"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Phí quản lý / tháng
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="400.000 đồng"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Tiền cọc
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="2 tháng tiền thuê"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Thời hạn thuê
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        value="Tối thiểu 12 tháng"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <p class="form-description">
+                                Điện, nước và gửi xe tính riêng theo
+                                biểu phí của tòa nhà.
+                            </p>
+
+
+                            <div class="sub-title">
+                                Tiện ích và quy định
+                            </div>
+
+
+                            <div class="amenities">
+
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Nội thất cơ bản
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Thang máy
+                                </label>
+
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Điều hòa
+                                </label>
+
+                                <label>
+                                    <input type="checkbox">
+                                    Ban công
+                                </label>
+
+                                <label>
+                                    <input type="checkbox">
+                                    Công viên
+                                </label>
+
+                                <label>
+                                    <input type="checkbox">
+                                    Cho nuôi thú cưng
+                                </label>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- MÔ TẢ -->
+                        <section class="card">
+
+                            <h2>
+                                Mô tả nhà
+                            </h2>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Nội dung tin *
+                                </label>
+
+                                <textarea>Studio 38 m² tại An Phú, phù hợp 1–2 người. Có nội thất cơ bản, điều hòa và thang máy. Giá thuê 9 triệu/tháng; phí quản lý 400.000đ/tháng. Quy định thú cưng cần xác nhận với chủ nhà.</textarea>
+
+                            </div>
+
+
+                            <button
+                                class="outline-btn"
+                                id="aiDescription"
+                            >
+                                Nhờ AI gợi ý mô tả
+                            </button>
+
+                        </section>
+
+
+                        <!-- HÌNH ẢNH -->
+                        <section class="card">
+
+                            <h2>
+                                Hình ảnh và giấy tờ
+                            </h2>
+
+
+                            <div class="image-document">
+
+                                <div class="current-image">
+
+                                    <img
+                                        src="https://placehold.co/230x130"
+                                        alt="Ảnh nhà"
+                                    >
+
+                                    <p>
+                                        Ảnh hiện tại · Cần xác minh nguồn
+                                    </p>
+
+                                </div>
+
+
+                                <div class="document-area">
+
+                                    <strong>
+                                        Ảnh gốc: chưa bổ sung
+                                    </strong>
+
+                                    <button
+                                        class="outline-btn"
+                                        id="uploadImage"
+                                    >
+                                        Tải ảnh gốc lên
+                                    </button>
+
+                                    <p>
+                                        JPG, PNG · Tối đa 10 MB/ảnh ·
+                                        Không dùng ảnh của căn khác
+                                    </p>
+
+
+                                    <strong>
+                                        Giấy ủy quyền: chưa có
+                                    </strong>
+
+                                    <button
+                                        class="outline-btn"
+                                        id="uploadDocument"
+                                    >
+                                        Tải giấy ủy quyền
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <p class="form-note">
+                                PDF, JPG · Tối đa 10 MB.
+                                Chỉ môi giới sở hữu tin và kiểm duyệt viên
+                                được xem tài liệu xác minh.
+                            </p>
+
+                        </section>
+
+                    </div>
+
+
+                    <!-- RIGHT CHECK -->
+                    <aside class="check-card">
+
+                        <h2>
+                            Kiểm tra trước khi gửi
+                        </h2>
+
+
+                        <div class="status-badge">
+                            Bản sửa · Chưa gửi
+                        </div>
+
+
+                        <div class="check-list">
+
+                            <div>
+                                ✓ Tiêu đề, loại nhà và địa chỉ
+                            </div>
+
+                            <div>
+                                ✓ Diện tích, giá và phí
+                            </div>
+
+                            <div>
+                                ✓ Mô tả và tiện ích
+                            </div>
+
+                            <div class="missing">
+                                ☐ Ảnh gốc của Studio An Phú
+                            </div>
+
+                            <div class="missing">
+                                ☐ Giấy ủy quyền hợp lệ
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Không thể gửi lại khi còn thiếu tài liệu
+                            bắt buộc. Sau khi gửi, kiểm duyệt viên sẽ
+                            xác minh trước khi cho hiển thị.
+                        </p>
+
+
+                        <button
+                            class="outline-btn full-btn"
+                            id="openBrokerAI"
+                        >
+                            Mở AI môi giới
+                        </button>
+
+
+                        <small>
+                            AI có thể rà soát thông tin thiếu và đề xuất
+                            mô tả; không tự đăng tin hay gửi kiểm duyệt.
+                        </small>
+
+                    </aside>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+                <section class="action-area">
+
+                    <button
+                        class="primary-btn"
+                        id="saveDraft"
+                    >
+                        Lưu nháp
+                    </button>
+
+
+                    <button
+                        class="disabled-btn"
+                        id="submitReview"
+                        disabled
+                    >
+                        Gửi kiểm duyệt
+                    </button>
+
+
+                    <button
+                        class="outline-btn"
+                        id="cancelChanges"
+                    >
+                        Hủy thay đổi
+                    </button>
+
+
+                    <div class="action-note">
+                        Chưa đủ ảnh gốc và giấy ủy quyền ·
+                        Người gửi: Lan Anh
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="footer">
+
+                    <div>
+                        HomeFit AI · Khám phá nhà ở theo nhu cầu sống
+                    </div>
+
+                    <div>
+                        Dữ liệu minh họa cho concept · Không phải dữ liệu thực
+                    </div>
+
+                </footer>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../../js/moigioi_tao_sua_tin.js"></script>
+
+</body>
+</html>
