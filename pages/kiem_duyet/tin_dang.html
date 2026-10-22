@@ -4,514 +4,503 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Quản lý tin đăng - HomeFit AI</title>
+    <title>HomeFit AI - Duyệt tin đăng</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../../css/kiemduyet_tindang.css">
 </head>
 
 <body>
 
-<div class="app">
+<div class="page">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <div class="workspace-label">
-            KHÔNG GIAN LÀM VIỆC
-        </div>
-
-        <nav class="sidebar-nav">
-
-            <button class="nav-item active">
-                <span class="icon">⌂</span>
-                <span>Tin đăng</span>
-            </button>
-
-            <button class="nav-item">
-                <span class="icon">○</span>
-                <span>Khách hàng</span>
-            </button>
-
-            <button class="nav-item">
-                <span class="icon">＋</span>
-                <span>Tạo / sửa tin</span>
-            </button>
-
-            <button class="nav-item">
-                <span class="icon">✦</span>
-                <span>AI</span>
-            </button>
-
-        </nav>
-
-
-        <!-- ROLE -->
-        <div class="sidebar-card">
-
-            <div class="small-label">
-                VAI TRÒ HIỆN TẠI
-            </div>
-
-            <div class="role">
-                Môi giới
-            </div>
-
-            <button class="logout-btn" id="logoutBtn">
-                Đăng xuất ↗
-            </button>
-
-        </div>
-
-
-        <!-- AI NOTE -->
-        <div class="sidebar-card ai-note">
-
-            <div class="ai-icon">
-                ✦
-            </div>
-
-            <div class="ai-title">
-                AI hỗ trợ. Bạn quyết định.
-            </div>
-
-            <div class="ai-description">
-                Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.
-            </div>
-
-        </div>
-
-
-        <div class="help-link">
-            Trung tâm trợ giúp ↗
-        </div>
-
-    </aside>
-
-
-    <!-- MAIN -->
-    <main class="main-content">
+    <div class="app">
 
         <!-- HEADER -->
-        <header class="page-header">
+        <header class="topbar">
 
-            <div class="header-text">
-
-                <div class="eyebrow">
-                    KHÔNG GIAN CỦA LAN ANH
-                </div>
-
-                <h1>
-                    Quản lý tin đăng
-                </h1>
-
-                <p>
-                    Theo dõi chất lượng tin đăng, trạng thái duyệt và lịch cập nhật tại một nơi.
-                </p>
-
+            <div class="brand">
+                <div class="brand-icon">⌂</div>
+                <div class="brand-name">HomeFit AI</div>
             </div>
 
+            <nav class="top-nav">
+                <a href="tin_dang.html" class="active">Duyệt tin</a>
+                <a href="xu_ly_bao_cao.html">Xử lý báo cáo</a>
+                <a href="nhat_ky_xu_ly.html">Nhật ký xử lý</a>
+                <a href="ai.html">AI</a>
+            </nav>
 
-            <button class="primary-btn" id="createPostBtn">
-                ＋
-                Tạo tin đăng
-            </button>
+            <div class="user-area">
+                <span class="notification">🔔</span>
+
+                <span class="role-badge">
+                    Kiểm duyệt viên
+                </span>
+
+                <span class="avatar">
+                    NH
+                </span>
+            </div>
 
         </header>
 
 
-        <!-- STATISTICS -->
-        <section class="stats-grid">
+        <div class="body-layout">
 
-            <!-- CARD 1 -->
-            <div class="stat-card">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
 
-                <div class="stat-header">
+                <div class="sidebar-title">
+                    KHÔNG GIAN LÀM VIỆC
+                </div>
 
-                    <span>
-                        Tin đăng đang hiển thị
-                    </span>
+                <nav class="sidebar-nav">
 
-                    <span class="stat-icon">
+                    <button class="side-item active" data-section="review">
                         ⌂
-                    </span>
+                        <span>Duyệt tin</span>
+                    </button>
 
-                </div>
+                    <button class="side-item" data-section="reports">
+                        ▣
+                        <span>Xử lý báo cáo</span>
+                    </button>
 
-                <div class="stat-number">
-                    8
-                </div>
-
-                <div class="stat-link">
-                    12 tin đăng tổng cộng
-                </div>
-
-            </div>
-
-
-            <!-- CARD 2 -->
-            <div class="stat-card">
-
-                <div class="stat-header">
-
-                    <span>
-                        Đang chờ kiểm duyệt
-                    </span>
-
-                    <span class="stat-icon">
+                    <button class="side-item" data-section="history">
                         ◷
-                    </span>
+                        <span>Nhật ký xử lý</span>
+                    </button>
 
-                </div>
-
-                <div class="stat-number">
-                    3
-                </div>
-
-                <div class="stat-link">
-                    1 tin cần bổ sung thông tin
-                </div>
-
-            </div>
-
-
-            <!-- CARD 3 -->
-            <div class="stat-card">
-
-                <div class="stat-header">
-
-                    <span>
-                        Lịch xem nhà đã xác nhận
-                    </span>
-
-                    <span class="stat-icon">
-                        □
-                    </span>
-
-                </div>
-
-                <div class="stat-number">
-                    6
-                </div>
-
-                <div class="stat-link">
-                    1 lịch với Minh An · 03/10
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTENT -->
-        <section class="content-grid">
-
-            <!-- POSTS -->
-            <div class="posts-card">
-
-                <h2>
-                    Tin đăng của bạn
-                </h2>
-
-                <p class="section-description">
-                    4 / 12 tin · Cập nhật minh họa ngày 01/10/2026
-                </p>
-
-
-                <!-- TABLE -->
-                <div class="table">
-
-                    <!-- HEADER -->
-                    <div class="table-row table-header">
-
-                        <div>
-                            Tin đăng
-                        </div>
-
-                        <div>
-                            Giá thuê / tháng
-                        </div>
-
-                        <div>
-                            Trạng thái
-                        </div>
-
-                        <div>
-                            Thao tác
-                        </div>
-
-                    </div>
-
-
-                    <!-- ROW 1 -->
-                    <div class="table-row">
-
-                        <div class="post-name">
-                            An Nhiên
-                            <br>
-                            <span>
-                                HF-1024 · Thảo Điền
-                            </span>
-                        </div>
-
-                        <div>
-                            15 triệu
-                        </div>
-
-                        <div>
-                            <span class="status">
-                                Đang hiển thị
-                            </span>
-                        </div>
-
-                        <div>
-                            <button class="action-btn">
-                                Xem chi tiết ↗
-                            </button>
-                        </div>
-
-                    </div>
-
-
-                    <!-- ROW 2 -->
-                    <div class="table-row">
-
-                        <div class="post-name">
-                            Riverside Bình Thạnh
-                            <br>
-                            <span>
-                                HF-1025 · Phường 22
-                            </span>
-                        </div>
-
-                        <div>
-                            16,5 triệu
-                        </div>
-
-                        <div>
-                            <span class="status">
-                                Chờ duyệt
-                            </span>
-                        </div>
-
-                        <div>
-                            <button class="action-btn">
-                                Theo dõi ↗
-                            </button>
-                        </div>
-
-                    </div>
-
-
-                    <!-- ROW 3 -->
-                    <div class="table-row">
-
-                        <div class="post-name">
-                            Vườn Phố
-                            <br>
-                            <span>
-                                HF-1026 · An Phú
-                            </span>
-                        </div>
-
-                        <div>
-                            13 triệu
-                        </div>
-
-                        <div>
-                            <span class="status">
-                                Đang hiển thị
-                            </span>
-                        </div>
-
-                        <div>
-                            <button class="action-btn">
-                                Chỉnh sửa ↗
-                            </button>
-                        </div>
-
-                    </div>
-
-
-                    <!-- ROW 4 -->
-                    <div class="table-row">
-
-                        <div class="post-name">
-                            Studio An Phú
-                            <br>
-                            <span>
-                                HF-1027 · An Phú
-                            </span>
-                        </div>
-
-                        <div>
-                            9 triệu
-                        </div>
-
-                        <div>
-                            <span class="status">
-                                Cần bổ sung
-                            </span>
-                        </div>
-
-                        <div>
-                            <button class="action-btn">
-                                Bổ sung ↗
-                            </button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="table-note">
-                    HF-1025 tạm ngưng hiển thị để duyệt lại bản cập nhật.
-                    HF-1027 cần ảnh gốc và giấy ủy quyền.
-                </div>
-
-            </div>
-
-
-            <!-- AI PANEL -->
-            <aside class="ai-panel">
-
-                <div class="ai-panel-header">
-
-                    <span class="ai-panel-icon">
+                    <button class="side-item" data-section="ai">
                         ✦
-                    </span>
-
-                    <h2>
-                        AI hỗ trợ môi giới
-                    </h2>
-
-                </div>
-
-
-                <div class="ai-badge">
-                    Gợi ý · Chưa gửi
-                </div>
-
-
-                <h3>
-                    Ưu tiên phản hồi Minh An
-                </h3>
-
-
-                <p>
-                    Nhu cầu thuê 12–18 triệu, gần công việc và cho nuôi mèo
-                    khớp với An Nhiên. Lịch xem nhà đã được xác nhận.
-                </p>
-
-
-                <p class="draft">
-                    Bản nháp:
-                    “Chào An, hẹn bạn 10:00 ngày 03/10 tại sảnh An Nhiên.
-                    Mình sẽ xác nhận lại quy định thú cưng.”
-                </p>
-
-
-                <div class="ai-actions">
-
-                    <button class="secondary-btn" id="editDraftBtn">
-                        Sửa bản nháp
+                        <span>AI</span>
                     </button>
 
-                    <button class="primary-btn" id="sendDraftBtn">
-                        Duyệt & gửi
+                </nav>
+
+
+                <!-- ROLE -->
+                <div class="role-card">
+
+                    <div class="muted-label">
+                        VAI TRÒ HIỆN TẠI
+                    </div>
+
+                    <div class="role-name">
+                        Kiểm duyệt viên
+                    </div>
+
+                    <button class="logout-btn">
+                        <a href="../../trang_chu.html"> Đăng xuất</a>
+                        
                     </button>
 
                 </div>
 
 
-                <div class="ai-warning">
-                    AI không tự động gửi tin nhắn cho khách.
+                <!-- AI NOTE -->
+                <div class="ai-note">
+
+                    <div class="ai-icon">
+                        ✦
+                    </div>
+
+                    <div class="note-title">
+                        AI hỗ trợ. Bạn quyết định.
+                    </div>
+
+                    <div class="muted-text">
+                        Mọi gợi ý đều có thể xem lại,
+                        chỉnh sửa hoặc từ chối.
+                    </div>
+
+                </div>
+
+
+                <div class="help-link">
+                    Trung tâm trợ giúp ↗
                 </div>
 
             </aside>
 
-        </section>
+
+            <!-- MAIN CONTENT -->
+            <main class="content">
+
+                <!-- PAGE HEADING -->
+                <section class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            TRUNG TÂM KIỂM DUYỆT
+                        </div>
+
+                        <h1>
+                            Duyệt tin đăng
+                        </h1>
+
+                        <p>
+                            Xem tin cần duyệt, kiểm tra thông tin
+                            và lưu lại quyết định.
+                        </p>
+
+                    </div>
 
 
-        <!-- FOOTER -->
-        <footer>
+                    <button class="outline-btn">
+                        ◷
+                        <span>Nhật ký xử lý</span>
+                    </button>
 
-            <div>
-                HomeFit AI · Khám phá nhà ở theo nhu cầu sống
-            </div>
-
-            <div>
-                Dữ liệu minh họa cho concept · Không phải dữ liệu thực
-            </div>
-
-        </footer>
-
-    </main>
-
-</div>
+                </section>
 
 
-<!-- MODAL -->
-<div class="modal hidden" id="createModal">
+                <!-- STATISTICS -->
+                <section class="stats">
 
-    <div class="modal-box">
+                    <div class="stat-card">
 
-        <button class="modal-close" id="closeModal">
-            ×
-        </button>
+                        <div class="stat-head">
+                            <span>Tin đăng chờ duyệt</span>
+                            <span>▣</span>
+                        </div>
 
-        <h2>
-            Tạo tin đăng
-        </h2>
+                        <strong>
+                            3
+                        </strong>
 
-        <p>
-            Nhập thông tin cơ bản cho tin đăng mới.
-        </p>
+                        <small>
+                            1 tin cần xem trong hôm nay
+                        </small>
 
-
-        <form id="postForm">
-
-            <label>
-                Tên tin đăng
-
-                <input
-                    type="text"
-                    id="postName"
-                    placeholder="Ví dụ: Căn hộ An Phú"
-                    required
-                >
-
-            </label>
+                    </div>
 
 
-            <label>
-                Giá thuê / tháng
+                    <div class="stat-card">
 
-                <input
-                    type="text"
-                    id="postPrice"
-                    placeholder="Ví dụ: 12 triệu"
-                    required
-                >
+                        <div class="stat-head">
+                            <span>Đã xử lý trong tuần</span>
+                            <span>▣</span>
+                        </div>
 
-            </label>
+                        <strong>
+                            7
+                        </strong>
+
+                        <small>
+                            Mọi quyết định có nhật ký
+                        </small>
+
+                    </div>
+
+                </section>
 
 
-            <button
-                type="submit"
-                class="primary-btn"
-            >
-                Thêm tin đăng
-            </button>
+                <!-- FILTER -->
+                <section class="filter-tabs">
 
-        </form>
+                    <button
+                        class="filter-tab active"
+                        data-filter="pending">
+
+                        Tin chờ duyệt · 3
+
+                    </button>
+
+                    <button
+                        class="filter-tab"
+                        data-filter="processed">
+
+                        Đã xử lý · 7
+
+                    </button>
+
+                </section>
+
+
+                <!-- WORKSPACE -->
+                <section class="workspace">
+
+
+                    <!-- QUEUE -->
+                    <div class="queue-panel panel">
+
+                        <h2>
+                            Hàng đợi cần xử lý
+                        </h2>
+
+                        <p class="panel-subtitle">
+                            Tin đăng chờ duyệt
+                        </p>
+
+
+                        <!-- LISTING 1 -->
+                        <article
+                            class="listing-card selected"
+                            data-id="HF-1025">
+
+                            <span class="status-badge">
+                                Tin đăng · Chờ duyệt
+                            </span>
+
+                            <h3>
+                                Riverside · HF-1025
+                            </h3>
+
+                            <p>
+                                Bản cập nhật · 30/09 · 17:20
+                                <br>
+                                Đủ thông tin cơ bản
+                            </p>
+
+                        </article>
+
+
+                        <!-- CHECK -->
+                        <div class="check-card">
+
+                            <strong>
+                                HF-1025 · Kiểm tra trước khi duyệt
+                            </strong>
+
+                            <p>
+                                Ảnh gốc ✓ · Địa chỉ ✓ · Giá & phí ✓
+                            </p>
+
+                            <div class="button-row">
+
+                                <button class="primary-btn approve-btn">
+                                    Duyệt tin
+                                </button>
+
+                                <button class="secondary-btn supplement-btn">
+                                    Bổ sung
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LISTING 2 -->
+                        <article
+                            class="listing-card"
+                            data-id="HF-1028">
+
+                            <span class="status-badge">
+                                Tin đăng · Chờ duyệt
+                            </span>
+
+                            <h3>
+                                Nhà phố Linh Đông · HF-1028
+                            </h3>
+
+                            <p>
+                                Chờ xác minh địa chỉ
+                                <br>
+                                01/10/2026 · 09:10
+                            </p>
+
+                        </article>
+
+
+                        <button class="more-link">
+                            Xem thêm 1 mục →
+                        </button>
+
+
+                        <div class="handler">
+                            Người xử lý: Nguyễn Hà
+                        </div>
+
+                    </div>
+
+
+                    <!-- DETAIL -->
+                    <div class="detail-panel panel">
+
+                        <h2>
+                            Chi tiết tin đăng
+                        </h2>
+
+                        <p class="panel-subtitle">
+                            Tin
+                            <span id="detail-id">
+                                HF-1025
+                            </span>
+                            đang chờ duyệt
+                        </p>
+
+
+                        <!-- BADGES -->
+                        <div class="badges">
+
+                            <span class="status-badge">
+                                Chờ duyệt
+                            </span>
+
+                            <span class="outline-badge">
+                                Đủ thông tin cơ bản
+                            </span>
+
+                        </div>
+
+
+                        <!-- CONTENT -->
+                        <div class="detail-content">
+
+                            <h3>
+                                Nội dung tin đăng
+                            </h3>
+
+                            <p id="detail-content">
+                                Bản cập nhật Riverside ·
+                                Đủ thông tin cơ bản.
+                            </p>
+
+                            <small>
+                                Bản cập nhật · 30/09 · 17:20
+                            </small>
+
+                            <a href="#">
+                                Quy tắc liên quan:
+                                ảnh phải phản ánh đúng
+                                nhà được đăng.
+                            </a>
+
+                        </div>
+
+
+                        <!-- AI -->
+                        <div class="ai-card">
+
+                            <div class="ai-card-title">
+
+                                ✦
+
+                                <span>
+                                    AI hỗ trợ · Kiểm tra trước khi duyệt
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Kiểm tra ảnh gốc, địa chỉ,
+                                giá và phí trước khi duyệt
+                                bản cập nhật.
+                            </p>
+
+                            <small>
+                                Quyết định duyệt do kiểm duyệt viên
+                                xác nhận.
+                            </small>
+
+                        </div>
+
+
+                        <!-- REASON -->
+                        <div class="reason">
+
+                            <label for="reason-select">
+                                Lý do xử lý
+                            </label>
+
+                            <select id="reason-select">
+
+                                <option>
+                                    Duyệt tin sau khi kiểm tra
+                                    ảnh và thông tin cơ bản
+                                </option>
+
+                                <option>
+                                    Cần bổ sung thông tin
+                                </option>
+
+                                <option>
+                                    Cần xác minh địa chỉ
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- FEEDBACK -->
+                        <div class="feedback-card">
+
+                            <strong>
+                                Phản hồi gửi môi giới
+                            </strong>
+
+                            <p>
+                                Tin đăng đủ thông tin cơ bản.
+                                Đề xuất duyệt hiển thị sau khi
+                                kiểm tra ảnh và xác minh cuối cùng.
+                            </p>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+                        <div class="button-row">
+
+                            <button class="primary-btn approve-btn">
+                                Duyệt tin
+                            </button>
+
+                            <button class="secondary-btn supplement-btn">
+                                Bổ sung
+                            </button>
+
+                            <button class="secondary-btn draft-btn">
+                                Lưu nháp
+                            </button>
+
+                        </div>
+
+
+                        <div class="decision-note">
+
+                            Quyết định do Nguyễn Hà xác nhận.
+                            Lý do và thời gian sẽ được lưu vào
+                            nhật ký xử lý.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="footer">
+
+                    <span>
+                        HomeFit AI · Khám phá nhà ở theo nhu cầu sống
+                    </span>
+
+                    <span>
+                        Dữ liệu minh họa cho concept ·
+                        Không phải dữ liệu thực
+                    </span>
+
+                </footer>
+
+            </main>
+
+        </div>
 
     </div>
 
 </div>
 
 
-<script src="../../js/kiemduyet_tindang.js"></script>
+<script src="../js/kiemduyet_tindang.js"></script>
 
 </body>
 </html>

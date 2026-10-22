@@ -1,424 +1,235 @@
-/* =====================================
-   HOMEFIT AI
-   QUẢN LÝ TIN ĐĂNG
-===================================== */
+document.addEventListener("DOMContentLoaded", () => {
+
+    // =========================
+    // LẤY CÁC ELEMENT
+    // =========================
+
+    const sideItems =
+        document.querySelectorAll(".side-item");
+
+    const filterTabs =
+        document.querySelectorAll(".filter-tab");
+
+    const listingCards =
+        document.querySelectorAll(".listing-card");
+
+    const approveButtons =
+        document.querySelectorAll(".approve-btn");
+
+    const supplementButtons =
+        document.querySelectorAll(".supplement-btn");
+
+    const draftButtons =
+        document.querySelectorAll(".draft-btn");
+
+    const logoutButton =
+        document.querySelector(".logout-btn");
+
+    const detailId =
+        document.querySelector("#detail-id");
+
+    const detailContent =
+        document.querySelector("#detail-content");
 
 
-/* =====================================
-   LẤY CÁC ELEMENT
-===================================== */
+    // =========================
+    // DỮ LIỆU TIN
+    // =========================
 
-const createPostBtn =
-    document.getElementById("createPostBtn");
+    const listings = {
 
-const createModal =
-    document.getElementById("createModal");
+        "HF-1025": {
+            title: "Riverside · HF-1025",
 
-const closeModal =
-    document.getElementById("closeModal");
+            content:
+                "Bản cập nhật Riverside · Đủ thông tin cơ bản."
+        },
 
-const postForm =
-    document.getElementById("postForm");
+        "HF-1028": {
+            title: "Nhà phố Linh Đông · HF-1028",
 
-const editDraftBtn =
-    document.getElementById("editDraftBtn");
+            content:
+                "Tin đăng đang chờ xác minh địa chỉ."
+        }
 
-const sendDraftBtn =
-    document.getElementById("sendDraftBtn");
-
-const logoutBtn =
-    document.getElementById("logoutBtn");
+    };
 
 
-/* =====================================
-   MỞ MODAL
-===================================== */
+    // =========================
+    // CHỌN TIN
+    // =========================
 
-function openModal() {
+    function selectListing(id) {
 
-    createModal.classList.remove("hidden");
+        listingCards.forEach(card => {
 
-    const postName =
-        document.getElementById("postName");
+            card.classList.toggle(
+                "selected",
+                card.dataset.id === id
+            );
 
-    postName.focus();
-}
-
-
-/* =====================================
-   ĐÓNG MODAL
-===================================== */
-
-function closeCreateModal() {
-
-    createModal.classList.add("hidden");
-}
+        });
 
 
-/* =====================================
-   BUTTON TẠO TIN ĐĂNG
-===================================== */
-
-createPostBtn.addEventListener(
-    "click",
-    openModal
-);
+        const listing = listings[id];
 
 
-/* =====================================
-   BUTTON ĐÓNG MODAL
-===================================== */
+        if (listing) {
 
-closeModal.addEventListener(
-    "click",
-    closeCreateModal
-);
+            detailId.textContent = id;
 
-
-/* =====================================
-   CLICK RA NGOÀI MODAL
-===================================== */
-
-createModal.addEventListener(
-    "click",
-    function(event) {
-
-        if (event.target === createModal) {
-
-            closeCreateModal();
+            detailContent.textContent =
+                listing.content;
 
         }
 
     }
-);
 
 
-/* =====================================
-   THÊM TIN ĐĂNG
-===================================== */
+    // =========================
+    // CLICK VÀO TIN
+    // =========================
 
-postForm.addEventListener(
-    "submit",
-    function(event) {
+    listingCards.forEach(card => {
 
-        event.preventDefault();
+        card.addEventListener("click", () => {
 
-
-        const name =
-            document
-                .getElementById("postName")
-                .value
-                .trim();
-
-
-        const price =
-            document
-                .getElementById("postPrice")
-                .value
-                .trim();
-
-
-        /* KIỂM TRA DỮ LIỆU */
-
-        if (!name || !price) {
-
-            alert(
-                "Vui lòng nhập đầy đủ thông tin."
+            selectListing(
+                card.dataset.id
             );
 
-            return;
-        }
+        });
 
+    });
 
-        /* TẠO MÃ TIN NGẪU NHIÊN */
 
-        const postId =
-            Math.floor(
-                1000 +
-                Math.random() * 9000
-            );
+    // =========================
+    // SIDEBAR
+    // =========================
 
+    sideItems.forEach(item => {
 
-        /* LẤY TABLE */
+        item.addEventListener("click", () => {
 
-        const table =
-            document.querySelector(".table");
+            sideItems.forEach(button => {
 
+                button.classList.remove("active");
 
-        /* TẠO ROW */
+            });
 
-        const row =
-            document.createElement("div");
 
+            item.classList.add("active");
 
-        row.className =
-            "table-row";
+        });
 
+    });
 
-        /* NỘI DUNG */
 
-        row.innerHTML = `
+    // =========================
+    // FILTER TAB
+    // =========================
 
-            <div class="post-name">
+    filterTabs.forEach(tab => {
 
-                ${name}
+        tab.addEventListener("click", () => {
 
-                <br>
+            filterTabs.forEach(button => {
 
-                <span>
-                    HF-${postId} · Tin mới
-                </span>
+                button.classList.remove("active");
 
-            </div>
+            });
 
 
-            <div>
-                ${price}
-            </div>
+            tab.classList.add("active");
 
 
-            <div>
+            if (
+                tab.dataset.filter === "processed"
+            ) {
 
-                <span class="status">
-                    Chờ duyệt
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <button
-                    class="action-btn"
-                >
-                    Theo dõi ↗
-                </button>
-
-            </div>
-
-        `;
-
-
-        /* THÊM VÀO TABLE */
-
-        table.appendChild(row);
-
-
-        /* RESET FORM */
-
-        postForm.reset();
-
-
-        /* ĐÓNG MODAL */
-
-        closeCreateModal();
-
-
-        /* THÔNG BÁO */
-
-        alert(
-            "Đã thêm tin đăng mới."
-        );
-
-    }
-);
-
-
-/* =====================================
-   SỬA BẢN NHÁP AI
-===================================== */
-
-editDraftBtn.addEventListener(
-    "click",
-    function() {
-
-        const draft =
-            document.querySelector(".draft");
-
-
-        const newDraft =
-            prompt(
-                "Chỉnh sửa bản nháp:",
-                draft.textContent
-            );
-
-
-        if (
-            newDraft !== null &&
-            newDraft.trim() !== ""
-        ) {
-
-            draft.textContent =
-                newDraft;
-
-        }
-
-    }
-);
-
-
-/* =====================================
-   DUYỆT & GỬI
-===================================== */
-
-sendDraftBtn.addEventListener(
-    "click",
-    function() {
-
-        const confirmed =
-            confirm(
-                "Bạn có chắc muốn duyệt và gửi tin nhắn này không?"
-            );
-
-
-        if (!confirmed) {
-            return;
-        }
-
-
-        sendDraftBtn.textContent =
-            "Đã gửi ✓";
-
-
-        sendDraftBtn.disabled =
-            true;
-
-
-        sendDraftBtn.style.opacity =
-            "0.7";
-
-
-        alert(
-            "Bản nháp đã được duyệt và gửi."
-        );
-
-    }
-);
-
-
-/* =====================================
-   ĐĂNG XUẤT
-===================================== */
-
-logoutBtn.addEventListener(
-    "click",
-    function() {
-
-        const confirmed =
-            confirm(
-                "Bạn có chắc muốn đăng xuất không?"
-            );
-
-
-        if (confirmed) {
-
-            alert(
-                "Đã đăng xuất."
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================
-   MENU BÊN TRÁI
-===================================== */
-
-const navItems =
-    document.querySelectorAll(
-        ".nav-item"
-    );
-
-
-navItems.forEach(
-    function(item) {
-
-        item.addEventListener(
-            "click",
-            function() {
-
-
-                /* XÓA ACTIVE */
-
-                navItems.forEach(
-                    function(nav) {
-
-                        nav.classList.remove(
-                            "active"
-                        );
-
-                    }
+                alert(
+                    "Khu vực 'Đã xử lý' đang là dữ liệu minh họa."
                 );
-
-
-                /* THÊM ACTIVE */
-
-                item.classList.add(
-                    "active"
-                );
-
-
-                /* LẤY TÊN MENU */
-
-                const pageName =
-                    item
-                        .querySelector("span:last-child")
-                        .textContent;
-
-
-                /* TẠM THÔNG BÁO */
-
-                if (
-                    pageName !== "Tin đăng"
-                ) {
-
-                    alert(
-                        "Bạn vừa chọn: " +
-                        pageName
-                    );
-
-                }
 
             }
-        );
 
-    }
-);
+        });
 
-
-/* =====================================
-   CÁC BUTTON THAO TÁC
-===================================== */
-
-function addActionEvents() {
-
-    const actionButtons =
-        document.querySelectorAll(
-            ".action-btn"
-        );
+    });
 
 
-    actionButtons.forEach(
-        function(button) {
+    // =========================
+    // DUYỆT TIN
+    // =========================
 
-            button.addEventListener(
-                "click",
-                function() {
+    approveButtons.forEach(button => {
 
-                    alert(
-                        "Chức năng: " +
-                        button.textContent.trim()
-                    );
+        button.addEventListener("click", () => {
 
-                }
+            alert(
+                `Đã duyệt tin ${detailId.textContent}.`
             );
 
-        }
-    );
+        });
 
-}
+    });
 
 
-addActionEvents();
+    // =========================
+    // BỔ SUNG
+    // =========================
+
+    supplementButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            alert(
+                `Tin ${detailId.textContent} cần được bổ sung thông tin.`
+            );
+
+        });
+
+    });
+
+
+    // =========================
+    // LƯU NHÁP
+    // =========================
+
+    draftButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            alert(
+                `Đã lưu nháp quyết định cho ${detailId.textContent}.`
+            );
+
+        });
+
+    });
+
+
+    // =========================
+    // ĐĂNG XUẤT
+    // =========================
+
+    if (logoutButton) {
+
+        logoutButton.addEventListener("click", () => {
+
+            alert(
+                "Chức năng đăng xuất đang là giao diện minh họa."
+            );
+
+        });
+
+    }
+
+
+    // =========================
+    // TIN MẶC ĐỊNH
+    // =========================
+
+    selectListing("HF-1025");
+
+});
