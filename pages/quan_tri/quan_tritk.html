@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFit AI - Quản lý tài khoản</title>
+    <link rel="stylesheet" href="../../css/quan_tritk.css">
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">⌂</div>
+                <span>HomeFit AI</span>
+            </a>
+
+            <nav class="top-nav">
+                <a href="../quan_tri/danh_muc.html">Danh mục</a>
+                <a href="../quan_tri/quan_tritk.html" class="active">Quản lý tài khoản</a>
+                <a href="../quan_tri/phan_quyen.html">Phân quyền</a>
+                <a href="../ai.html">AI</a>
+            </nav>
+
+            <div class="top-actions">
+                <span class="role-label">Quản trị viên</span>
+                <div class="avatar">QT</div>
+                <button class="btn btn-outline" id="logout-btn">Đăng xuất</button>
+            </div>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar">
+                <div class="sidebar-heading">KHÔNG GIAN LÀM VIỆC</div>
+
+                <nav class="side-nav">
+                    <a href="../quan_tri/danh_muc.html" class="side-link">
+                        <span class="side-icon"></span>
+                        <span>Danh mục</span>
+                    </a>
+
+                    <a href="../quan_tri/quan_tritk.html" class="side-link selected">
+                        <span class="side-icon"></span>
+                        <span>Quản lý tài khoản</span>
+                    </a>
+
+                    <a href="../quan_tri/phan_quyen.html" class="side-link">
+                        <span class="side-icon"></span>
+                        <span>Phân quyền</span>
+                    </a>
+
+                    <a href="../ai.html" class="side-link">
+                        <span class="side-icon"></span>
+                        <span>AI</span>
+                    </a>
+                </nav>
+
+                <div class="current-role">
+                    <div class="muted small">VAI TRÒ HIỆN TẠI</div>
+                    <strong>Quản trị viên</strong>
+                    <button class="text-button" id="sidebar-logout">Đăng xuất</button>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <section class="page-heading">
+                    <div>
+                        <div class="eyebrow">QUẢN TRỊ HỆ THỐNG</div>
+                        <h1>Quản lý tài khoản · Phân quyền an toàn</h1>
+                        <p>Quản lý tài khoản, phân quyền, mời tài khoản và theo dõi trạng thái hoạt động.</p>
+                    </div>
+
+                    <button class="btn btn-outline" id="audit-btn">
+                        <span>◷</span> Nhật ký quản trị
+                    </button>
+                </section>
+
+                <section class="stats">
+                    <article class="stat-card">
+                        <div class="stat-label">Tài khoản đang hoạt động</div>
+                        <div class="stat-number" id="active-count">3</div>
+                        <div class="stat-note" id="total-count">4 tài khoản tổng cộng</div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">Chờ xác minh / tạm khóa</div>
+                        <div class="stat-number" id="waiting-count">1 / 0</div>
+                        <div class="stat-note">Phân quyền do quản trị viên duyệt</div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-label">Vai trò đang dùng</div>
+                        <div class="stat-number" id="role-count">4</div>
+                        <div class="stat-note">Người tìm nhà, môi giới, kiểm duyệt, quản trị</div>
+                    </article>
+                </section>
+
+                <section class="account-panel">
+                    <div class="panel-heading">
+                        <h2>Tài khoản &amp; phân quyền</h2>
+                        <p>Không tự động cấp quyền vận hành · Thay đổi được ghi vào nhật ký quản trị</p>
+                    </div>
+
+                    <div class="filters">
+                        <div class="filter-group search-group">
+                            <label for="search-account">Tìm kiếm tài khoản</label>
+                            <input
+                                type="search"
+                                id="search-account"
+                                placeholder="Họ tên hoặc email"
+                            >
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="role-filter">Vai trò</label>
+                            <select id="role-filter">
+                                <option value="">Tất cả vai trò</option>
+                                <option value="Người tìm nhà">Người tìm nhà</option>
+                                <option value="Môi giới">Môi giới</option>
+                                <option value="Kiểm duyệt viên">Kiểm duyệt viên</option>
+                                <option value="Quản trị viên">Quản trị viên</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="status-filter">Trạng thái</label>
+                            <select id="status-filter">
+                                <option value="">Tất cả trạng thái</option>
+                                <option value="Hoạt động">Hoạt động</option>
+                                <option value="Chờ xác minh">Chờ xác minh</option>
+                                <option value="Tạm khóa">Tạm khóa</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" id="invite-btn">
+                            <span>＋</span> Mời tài khoản
+                        </button>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tài khoản</th>
+                                    <th>Vai trò</th>
+                                    <th>Trạng thái</th>
+                                    <th>Cập nhật</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="account-list"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-footer">
+                        <span id="result-count">Hiển thị 4 tài khoản</span>
+                        <div class="pagination">
+                            <button id="prev-page" disabled>Trước</button>
+                            <span id="page-number">1</span>
+                            <button id="next-page" disabled>Sau →</button>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="footer">
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <dialog id="invite-dialog" class="dialog">
+        <form id="invite-form">
+            <div class="dialog-heading">
+                <h2>Mời tài khoản</h2>
+                <button type="button" class="close-btn" id="close-dialog">×</button>
+            </div>
+
+            <label for="invite-name">Họ và tên</label>
+            <input type="text" id="invite-name" required placeholder="Nhập họ và tên">
+
+            <label for="invite-email">Email</label>
+            <input type="email" id="invite-email" required placeholder="name@example.com">
+
+            <label for="invite-role">Vai trò</label>
+            <select id="invite-role" required>
+                <option value="Người tìm nhà">Người tìm nhà</option>
+                <option value="Môi giới">Môi giới</option>
+                <option value="Kiểm duyệt viên">Kiểm duyệt viên</option>
+                <option value="Quản trị viên">Quản trị viên</option>
+            </select>
+
+            <div class="dialog-actions">
+                <button type="button" class="btn btn-outline" id="cancel-invite">Hủy</button>
+                <button type="submit" class="btn btn-primary">Tạo tài khoản</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../../js/quan_tritk.js"></script>
+</body>
+</html>

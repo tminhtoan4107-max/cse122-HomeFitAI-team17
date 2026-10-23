@@ -3,504 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>HomeFit AI - Duyệt tin đăng</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="../../css/kiemduyet_tindang.css">
 </head>
-
 <body>
-
-<div class="page">
-
     <div class="app">
-
-        <!-- HEADER -->
-        <header class="topbar">
-
-            <div class="brand">
-                <div class="brand-icon">⌂</div>
-                <div class="brand-name">HomeFit AI</div>
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <span>HomeFit AI</span>
             </div>
 
             <nav class="top-nav">
-                <a href="../kiem_duyet/tin_dang.html" class="active">Duyệt tin</a>
-                <a href="../kiem_duyet/duyet_tin.html">Xử lý báo cáo</a>
+                <a class="active" href="../kiem_duyet/tin_dang.html">Duyệt tin</a>
+                <a href="../kiem_duyet/xu_ly_bao_cao.html">Xử lý báo cáo</a>
                 <a href="../kiem_duyet/nhat_ky_xu_ly.html">Nhật ký xử lý</a>
                 <a href="../ai.html">AI</a>
             </nav>
 
-            <div class="user-area">
-                <span class="notification">🔔</span>
-
-                <span class="role-badge">
-                    Kiểm duyệt viên
-                </span>
-
-                <span class="avatar">
-                    NH
-                </span>
+            <div class="user-info">
+                <span class="role">Kiểm duyệt viên</span>
+                <div class="avatar">NH</div>
             </div>
-
         </header>
 
-
-        <div class="body-layout">
-
-            <!-- SIDEBAR -->
+        <div class="workspace">
             <aside class="sidebar">
+                <p class="sidebar-heading">KHÔNG GIAN LÀM VIỆC</p>
 
-                <div class="sidebar-title">
-                    KHÔNG GIAN LÀM VIỆC
-                </div>
-
-                <nav class="sidebar-nav">
-
-                    <button class="side-item active" data-section="review">
-                        ⌂
-                        <span>Duyệt tin</span>
-                    </button>
-
-                    <button class="side-item" data-section="reports">
-                        ▣
-                        <span>Xử lý báo cáo</span>
-                    </button>
-
-                    <button class="side-item" data-section="history">
-                        ◷
-                        <span>Nhật ký xử lý</span>
-                    </button>
-
-                    <button class="side-item" data-section="ai">
-                        ✦
-                        <span>AI</span>
-                    </button>
-
+                <nav class="side-nav">
+                    <a class="selected" href="../kiem_duyet/tin_dang.html"> <span>Duyệt tin</span></a>
+                    <a href="../kiem_duyet/xu_ly_bao_cao.html"> <span>Xử lý báo cáo</span></a>
+                    <a href="../kiem_duyet/nhat_ky_xu_ly.html"><span>Nhật ký xử lý</span></a>
+                    <a href="../ai.html"> <span>AI</span></a>
                 </nav>
 
-
-                <!-- ROLE -->
                 <div class="role-card">
-
-                    <div class="muted-label">
-                        VAI TRÒ HIỆN TẠI
-                    </div>
-
-                    <div class="role-name">
-                        Kiểm duyệt viên
-                    </div>
-
-                    <button class="logout-btn">
-                        <a href="../../trang_chu.html"> Đăng xuất</a>
-                        
-                    </button>
-
+                    <p>VAI TRÒ HIỆN TẠI</p>
+                    <strong>Kiểm duyệt viên</strong>
+                    <a href="#" id="logout">Đăng xuất</a>
                 </div>
 
-
-                <!-- AI NOTE -->
-                <div class="ai-note">
-
-                    <div class="ai-icon">
-                        ✦
-                    </div>
-
-                    <div class="note-title">
-                        AI hỗ trợ. Bạn quyết định.
-                    </div>
-
-                    <div class="muted-text">
-                        Mọi gợi ý đều có thể xem lại,
-                        chỉnh sửa hoặc từ chối.
-                    </div>
-
+                <div class="ai-card">
+                    <div class="ai-icon">✧</div>
+                    <strong>AI hỗ trợ. Bạn quyết định.</strong>
+                    <p>Mọi gợi ý đều có thể xem lại, chỉnh sửa hoặc từ chối.</p>
                 </div>
 
-
-                <div class="help-link">
-                    Trung tâm trợ giúp ↗
-                </div>
-
+                <a class="help-link" href="#">Trung tâm trợ giúp ↗</a>
             </aside>
 
-
-            <!-- MAIN CONTENT -->
-            <main class="content">
-
-                <!-- PAGE HEADING -->
+            <main class="main-content">
                 <section class="page-heading">
-
                     <div>
-
-                        <div class="eyebrow">
-                            TRUNG TÂM KIỂM DUYỆT
-                        </div>
-
-                        <h1>
-                            Duyệt tin đăng
-                        </h1>
-
-                        <p>
-                            Xem tin cần duyệt, kiểm tra thông tin
-                            và lưu lại quyết định.
-                        </p>
-
+                        <p class="eyebrow">TRUNG TÂM KIỂM DUYỆT</p>
+                        <h1>Duyệt tin đăng</h1>
+                        <p class="muted">Xem tin cần duyệt, kiểm tra thông tin và lưu lại quyết định.</p>
                     </div>
-
-
-                    <button class="outline-btn">
-                        ◷
-                        <span>Nhật ký xử lý</span>
-                    </button>
-
+                    <button class="btn btn-outline" id="view-log">◷ Nhật ký xử lý</button>
                 </section>
 
-
-                <!-- STATISTICS -->
                 <section class="stats">
+                    <article class="stat-card">
+                        <div class="stat-label">Tin đăng chờ duyệt</div>
+                        <strong id="pending-count">3</strong>
+                        <p>1 tin cần xem trong hôm nay</p>
+                    </article>
 
-                    <div class="stat-card">
-
-                        <div class="stat-head">
-                            <span>Tin đăng chờ duyệt</span>
-                            <span>▣</span>
-                        </div>
-
-                        <strong>
-                            3
-                        </strong>
-
-                        <small>
-                            1 tin cần xem trong hôm nay
-                        </small>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-head">
-                            <span>Đã xử lý trong tuần</span>
-                            <span>▣</span>
-                        </div>
-
-                        <strong>
-                            7
-                        </strong>
-
-                        <small>
-                            Mọi quyết định có nhật ký
-                        </small>
-
-                    </div>
-
+                    <article class="stat-card">
+                        <div class="stat-label">Đã xử lý trong tuần</div>
+                        <strong id="processed-count">7</strong>
+                        <p>Mọi quyết định có nhật ký</p>
+                    </article>
                 </section>
 
+                <div class="tabs">
+                    <button class="tab active" data-tab="pending">Tin chờ duyệt · <span id="pending-tab-count">3</span></button>
+                    <button class="tab" data-tab="processed">Đã xử lý · <span id="processed-tab-count">7</span></button>
+                </div>
 
-                <!-- FILTER -->
-                <section class="filter-tabs">
+                <section class="review-layout">
+                    <div class="panel queue-panel">
+                        <h2>Hàng đợi cần xử lý</h2>
+                        <p class="muted">Tin đăng chờ duyệt</p>
 
-                    <button
-                        class="filter-tab active"
-                        data-filter="pending">
-
-                        Tin chờ duyệt · 3
-
-                    </button>
-
-                    <button
-                        class="filter-tab"
-                        data-filter="processed">
-
-                        Đã xử lý · 7
-
-                    </button>
-
-                </section>
-
-
-                <!-- WORKSPACE -->
-                <section class="workspace">
-
-
-                    <!-- QUEUE -->
-                    <div class="queue-panel panel">
-
-                        <h2>
-                            Hàng đợi cần xử lý
-                        </h2>
-
-                        <p class="panel-subtitle">
-                            Tin đăng chờ duyệt
-                        </p>
-
-
-                        <!-- LISTING 1 -->
-                        <article
-                            class="listing-card selected"
-                            data-id="HF-1025">
-
-                            <span class="status-badge">
-                                Tin đăng · Chờ duyệt
-                            </span>
-
-                            <h3>
-                                Riverside · HF-1025
-                            </h3>
-
-                            <p>
-                                Bản cập nhật · 30/09 · 17:20
-                                <br>
-                                Đủ thông tin cơ bản
-                            </p>
-
-                        </article>
-
-
-                        <!-- CHECK -->
-                        <div class="check-card">
-
-                            <strong>
-                                HF-1025 · Kiểm tra trước khi duyệt
-                            </strong>
-
-                            <p>
-                                Ảnh gốc ✓ · Địa chỉ ✓ · Giá & phí ✓
-                            </p>
-
-                            <div class="button-row">
-
-                                <button class="primary-btn approve-btn">
-                                    Duyệt tin
-                                </button>
-
-                                <button class="secondary-btn supplement-btn">
-                                    Bổ sung
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- LISTING 2 -->
-                        <article
-                            class="listing-card"
-                            data-id="HF-1028">
-
-                            <span class="status-badge">
-                                Tin đăng · Chờ duyệt
-                            </span>
-
-                            <h3>
-                                Nhà phố Linh Đông · HF-1028
-                            </h3>
-
-                            <p>
-                                Chờ xác minh địa chỉ
-                                <br>
-                                01/10/2026 · 09:10
-                            </p>
-
-                        </article>
-
-
-                        <button class="more-link">
-                            Xem thêm 1 mục →
+                        <button class="listing selected-listing" data-listing="HF-1025">
+                            <span class="status status-pending">Tin đăng · Chờ duyệt</span>
+                            <strong>Riverside · HF-1025</strong>
+                            <small>Bản cập nhật · 30/09 · 17:20</small>
+                            <small>Đủ thông tin cơ bản</small>
                         </button>
 
-
-                        <div class="handler">
-                            Người xử lý: Nguyễn Hà
-                        </div>
-
-                    </div>
-
-
-                    <!-- DETAIL -->
-                    <div class="detail-panel panel">
-
-                        <h2>
-                            Chi tiết tin đăng
-                        </h2>
-
-                        <p class="panel-subtitle">
-                            Tin
-                            <span id="detail-id">
-                                HF-1025
-                            </span>
-                            đang chờ duyệt
-                        </p>
-
-
-                        <!-- BADGES -->
-                        <div class="badges">
-
-                            <span class="status-badge">
-                                Chờ duyệt
-                            </span>
-
-                            <span class="outline-badge">
-                                Đủ thông tin cơ bản
-                            </span>
-
-                        </div>
-
-
-                        <!-- CONTENT -->
-                        <div class="detail-content">
-
-                            <h3>
-                                Nội dung tin đăng
-                            </h3>
-
-                            <p id="detail-content">
-                                Bản cập nhật Riverside ·
-                                Đủ thông tin cơ bản.
-                            </p>
-
-                            <small>
-                                Bản cập nhật · 30/09 · 17:20
-                            </small>
-
-                            <a href="#">
-                                Quy tắc liên quan:
-                                ảnh phải phản ánh đúng
-                                nhà được đăng.
-                            </a>
-
-                        </div>
-
-
-                        <!-- AI -->
-                        <div class="ai-card">
-
-                            <div class="ai-card-title">
-
-                                ✦
-
-                                <span>
-                                    AI hỗ trợ · Kiểm tra trước khi duyệt
-                                </span>
-
+                        <div class="quick-check">
+                            <strong>HF-1025 · Kiểm tra trước khi duyệt</strong>
+                            <p>Ảnh gốc ✓ · Địa chỉ ✓ · Giá &amp; phí ✓</p>
+                            <div class="button-row">
+                                <button class="btn btn-primary approve-btn">Duyệt tin</button>
+                                <button class="btn btn-outline request-btn">Bổ sung</button>
                             </div>
-
-                            <p>
-                                Kiểm tra ảnh gốc, địa chỉ,
-                                giá và phí trước khi duyệt
-                                bản cập nhật.
-                            </p>
-
-                            <small>
-                                Quyết định duyệt do kiểm duyệt viên
-                                xác nhận.
-                            </small>
-
                         </div>
 
+                        <button class="listing" data-listing="HF-1028">
+                            <span class="status status-pending">Tin đăng · Chờ duyệt</span>
+                            <strong>Nhà phố Linh Đông · HF-1028</strong>
+                            <small>Chờ xác minh địa chỉ</small>
+                            <small>01/10/2026 · 09:10</small>
+                        </button>
 
-                        <!-- REASON -->
-                        <div class="reason">
-
-                            <label for="reason-select">
-                                Lý do xử lý
-                            </label>
-
-                            <select id="reason-select">
-
-                                <option>
-                                    Duyệt tin sau khi kiểm tra
-                                    ảnh và thông tin cơ bản
-                                </option>
-
-                                <option>
-                                    Cần bổ sung thông tin
-                                </option>
-
-                                <option>
-                                    Cần xác minh địa chỉ
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <!-- FEEDBACK -->
-                        <div class="feedback-card">
-
-                            <strong>
-                                Phản hồi gửi môi giới
-                            </strong>
-
-                            <p>
-                                Tin đăng đủ thông tin cơ bản.
-                                Đề xuất duyệt hiển thị sau khi
-                                kiểm tra ảnh và xác minh cuối cùng.
-                            </p>
-
-                        </div>
-
-
-                        <!-- BUTTONS -->
-                        <div class="button-row">
-
-                            <button class="primary-btn approve-btn">
-                                Duyệt tin
-                            </button>
-
-                            <button class="secondary-btn supplement-btn">
-                                Bổ sung
-                            </button>
-
-                            <button class="secondary-btn draft-btn">
-                                Lưu nháp
-                            </button>
-
-                        </div>
-
-
-                        <div class="decision-note">
-
-                            Quyết định do Nguyễn Hà xác nhận.
-                            Lý do và thời gian sẽ được lưu vào
-                            nhật ký xử lý.
-
-                        </div>
-
+                        <button class="more-link" id="show-more">Xem thêm 1 mục →</button>
+                        <p class="muted handler">Người xử lý: Nguyễn Hà</p>
                     </div>
 
+                    <div class="panel detail-panel">
+                        <h2>Chi tiết tin đăng</h2>
+                        <p class="muted">Tin <span id="detail-id">HF-1025</span> đang chờ duyệt</p>
+
+                        <div class="detail-status">
+                            <span class="status status-pending" id="detail-status">Chờ duyệt</span>
+                            <span class="status status-neutral">Đủ thông tin cơ bản</span>
+                        </div>
+
+                        <div class="content-block">
+                            <h3>Nội dung tin đăng</h3>
+                            <p id="listing-description">Bản cập nhật Riverside · Đủ thông tin cơ bản.</p>
+                            <small>Bản cập nhật · 30/09 · 17:20</small>
+                            <p class="rule">Quy tắc liên quan: ảnh phải phản ánh đúng nhà được đăng.</p>
+                        </div>
+
+                        <div class="ai-advice">
+                            <h3>✧ AI hỗ trợ · Kiểm tra trước khi duyệt</h3>
+                            <p>Kiểm tra ảnh gốc, địa chỉ, giá và phí trước khi duyệt bản cập nhật.</p>
+                            <small>Quyết định duyệt do kiểm duyệt viên xác nhận.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Lý do xử lý</label>
+                            <textarea id="reason" rows="3">Duyệt tin sau khi kiểm tra ảnh và thông tin cơ bản</textarea>
+                        </div>
+
+                        <div class="feedback">
+                            <label for="feedback-text">Phản hồi gửi môi giới</label>
+                            <textarea id="feedback-text" rows="3">Tin đăng đủ thông tin cơ bản. Đề xuất duyệt hiển thị sau khi kiểm tra ảnh và xác minh cuối cùng.</textarea>
+                        </div>
+
+                        <div class="button-row action-buttons">
+                            <button class="btn btn-primary" id="approve">Duyệt tin</button>
+                            <button class="btn btn-outline" id="request">Bổ sung</button>
+                            <button class="btn btn-outline" id="save-draft">Lưu nháp</button>
+                        </div>
+
+                        <p class="muted note">Quyết định và thời gian xử lý sẽ được lưu vào nhật ký trên trình duyệt.</p>
+                    </div>
                 </section>
 
-
-                <!-- FOOTER -->
                 <footer class="footer">
-
-                    <span>
-                        HomeFit AI · Khám phá nhà ở theo nhu cầu sống
-                    </span>
-
-                    <span>
-                        Dữ liệu minh họa cho concept ·
-                        Không phải dữ liệu thực
-                    </span>
-
+                    <span>HomeFit AI · Khám phá nhà ở theo nhu cầu sống</span>
+                    <span>Dữ liệu minh họa cho concept · Không phải dữ liệu thực</span>
                 </footer>
-
             </main>
-
         </div>
-
     </div>
 
-</div>
-
-
-<script src="../js/kiemduyet_tindang.js"></script>
-
+    <div id="toast" class="toast"></div>
+    <script src="../../js/kiemduyet_tindang.js"></script>
 </body>
 </html>
