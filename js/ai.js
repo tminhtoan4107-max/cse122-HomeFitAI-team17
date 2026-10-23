@@ -115,3 +115,15 @@ sendQuestion.addEventListener("click", function () {
 
     questionInput.value = "";
 });
+
+const role = localStorage.getItem("role");
+const homeLink = document.getElementById("home-link");
+if (role === "admin") {
+     homeLink.href = "../admin/index.html";
+} 
+else if (role === "moderator") {
+    homeLink.href = "../moderator/duyet_tin.html";
+} 
+else {
+     homeLink.href = "../pages/nguoi_dung/tim_kiem.html";
+}
