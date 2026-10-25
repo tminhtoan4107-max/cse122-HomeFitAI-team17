@@ -125,5 +125,5 @@ else if (role === "moderator") {
     homeLink.href = "../moderator/duyet_tin.html";
 } 
 else {
-     homeLink.href = "../pages/nguoi_dung/tim_kiem.html";
+     homeLink.href = "../pages/nguoi_dung/seeker-property-search.html";
 }

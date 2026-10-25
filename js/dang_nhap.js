@@ -86,9 +86,9 @@ loginForm.addEventListener("submit", function (event) {
     loginMessage.className = "success";
 
     if (taiKhoan.vaiTro === "Môi giới") {
-        window.location.href = "../moi_gioi/dang_tin.html";
+        window.location.href = "../moi_gioi/agent-viewing-schedule";
     } else if (taiKhoan.vaiTro === "Người tìm nhà") {
-        window.location.href = "../nguoi_dung/tim_kiem.html";
+        window.location.href = "../nguoi_dung/seeker-property-search.html";
     } else {
         loginMessage.textContent =
             "Vai trò tài khoản không hợp lệ. Vui lòng liên hệ quản trị viên.";

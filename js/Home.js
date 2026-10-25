@@ -331,9 +331,12 @@ saveSuggestion.addEventListener("click", () => {
 document.querySelectorAll(
     '.nav-actions a, .account-banner a'
 ).forEach(link => {
-    link.addEventListener("click", event => {
-        event.preventDefault();
-        showToast("Chức năng tài khoản sẽ được tích hợp sau.");
+    link.addEventListener("click", () => {
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") {
+            showToast("Liên kết này chưa được thiết lập.");
+        }
     });
 });
 
